@@ -52,7 +52,7 @@
         ]
     },
     "redis": {
-        "host": "noske-fcs-redis",
+        "host": "noske-fcs-redis.noske-fcs.svc.cluster.local",
         "db": 1,
         "queryAnswerTimeoutSecs": 10
     },

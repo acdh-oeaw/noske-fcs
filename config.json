@@ -1,0 +1,63 @@
+{
+    "listenAddress" : "0.0.0.0",
+    "listenPort": 80,
+    "serverReadTimeoutSecs": 600,
+    "serverWriteTimeoutSecs": 60,
+    "serverInfo": {
+        "serverHost": "noske-fcs.acdh-ch-dev.oeaw.ac.at",
+        "serverPort": "80",
+        "database": "ACDH-CH",
+        "databaseTitle": {"en": "ACDH-CH FCS"},
+        "databaseDescription": {"en": "CLARIN FCS Endpoint for ACDH-CH corpora"}
+    },
+    "corpora": {
+        "registryDir": "/var/lib/manatee/registry",
+        "resources": [
+            {
+                "id": "susanne",
+                "pid": "susanne",
+                "fullName": {
+                    "en": "susanne"
+                },
+                "description": {
+                    "en": "A sample corpus provided with the nosketch engine"
+                },
+                "viewContextStruct": "s",
+                "languages": ["eng"],
+                "uri": "https://www.grsampson.net/Resources.html",
+                "posAttrs": [
+                    {
+                        "name": "word",
+                        "id": "attr1",
+                        "layer": "text",
+                        "isBasicSearchAttr": true,
+                        "isLayerDefault": true
+                    },
+                    {
+                        "name": "lemma",
+                        "id": "attr2",
+                        "layer": "lemma",
+                        "isBasicSearchAttr": true,
+                        "isLayerDefault": true
+                    }
+                ],
+                "structureMapping": {
+                    "utteranceStruct": "s",
+                    "paragraphStruct": "p",
+                    "turnStruct": "p",
+                    "textStruct": "doc",
+                    "sessionStruct": "doc"
+                }
+            }
+        ]
+    },
+    "redis": {
+        "host": "noske-fcs-redis",
+        "db": 1,
+        "queryAnswerTimeoutSecs": 10
+    },
+    "logging": {
+        "level": "debug"
+    }
+}
+

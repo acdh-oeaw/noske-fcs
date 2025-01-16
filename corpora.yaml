@@ -1,0 +1,49 @@
+# name of the noske registry file
+tunocent:
+  # corpora PID to be reported in the <ed:Resource> of the SRU explain
+  pid: tunocentPid
+  # corpora title to be reported as <ed:Resource>/<ed:Title> of the SRU explain
+  title: 
+    en: Tunocent
+  # corpora description to be reported as <ed:Resource>/<ed:Description> of the SRU explain
+  description:
+    en: Tunocent corpora
+  # corpora website URI to be reported as <ed:Resource>/<ed:LandingPageURI> of the SRU explain
+  landingPageURI: http://tunocent
+  # corpora languages to be reported as <ed:Resource>/<ed:Languages> of the SRU explain
+  languages:
+  - ara
+  # mappings for structures used by the mquery-sru
+  utterance: g
+  paragraph: g
+  turn: g
+  text: doc
+  session: doc
+abacus:
+  pid: abacusPid
+  title:
+    en: Abacus
+  description:
+    en: Abacus corpora
+  landingPageURI: http://abacus
+  languages:
+  - deu
+  utterance: g
+  paragraph: g
+  turn: doc
+  text: doc
+  session: doc
+susanne:
+  pid: susannePid
+  title:
+    en: susanne
+  description:
+    en: Susanne corpora
+  landingPageURI: http://susanne
+  languages:
+  - eng
+  utterance: g
+  paragraph: p
+  turn: p
+  text: doc
+  session: doc

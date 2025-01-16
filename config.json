@@ -12,44 +12,7 @@
     },
     "corpora": {
         "registryDir": "/var/lib/manatee/registry",
-        "resources": [
-            {
-                "id": "susanne",
-                "pid": "susanne",
-                "fullName": {
-                    "en": "susanne"
-                },
-                "description": {
-                    "en": "A sample corpus provided with the nosketch engine"
-                },
-                "viewContextStruct": "s",
-                "languages": ["eng"],
-                "uri": "https://www.grsampson.net/Resources.html",
-                "posAttrs": [
-                    {
-                        "name": "word",
-                        "id": "attr1",
-                        "layer": "text",
-                        "isBasicSearchAttr": true,
-                        "isLayerDefault": true
-                    },
-                    {
-                        "name": "lemma",
-                        "id": "attr2",
-                        "layer": "lemma",
-                        "isBasicSearchAttr": true,
-                        "isLayerDefault": true
-                    }
-                ],
-                "structureMapping": {
-                    "utteranceStruct": "s",
-                    "paragraphStruct": "p",
-                    "turnStruct": "p",
-                    "textStruct": "doc",
-                    "sessionStruct": "doc"
-                }
-            }
-        ]
+        "resources": []
     },
     "redis": {
         "host": "noske-fcs-redis.noske-fcs.svc.cluster.local",

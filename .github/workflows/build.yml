@@ -12,6 +12,8 @@ jobs:
       run: |
         git clone https://github.com/czcorpus/mquery-sru.git
         cp config.json mquery-sru/conf-docker.json
+        cp confgen.py corpora.yaml mquery-sru/
+        cat preDockerfile mquery-sru/Dockerfile postDockerfile > tmp && mv tmp mquery-sru/Dockerfile
     - name: docker build
       run: docker build -t acdhch/noske-fcs --label "buildUrl=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" mquery-sru
     - uses: docker/login-action@v3

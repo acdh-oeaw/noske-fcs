@@ -1,0 +1,3 @@
+#FROM gitlab.oeaw.ac.at:5050/acdh-ch/hpirker/noske4tunocent/main AS tunocent
+FROM ghcr.io/austrian-baroque-corpus/abc-search-indexer/noske-abacus AS abacus
+

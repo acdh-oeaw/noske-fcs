@@ -1,8 +1,9 @@
 
 #COPY --from=tunocent /var/lib/manatee /var/lib/manatee
 #COPY --from=tunocent /data.precompiled /var/lib/manatee/data
-COPY --from=abacus /var/lib/manatee /var/lib/manatee
-COPY --from=abacus /data.precompiled /var/lib/manatee/data
+#COPY --from=abacus /var/lib/manatee /var/lib/manatee
+#COPY --from=abacus /data.precompiled /var/lib/manatee/data
+COPY --from diarium /var/lib/manatee /var/lib/manatee
 
 RUN apt-get update && apt-get install -y python3-pip && pip3 install pyyaml
 

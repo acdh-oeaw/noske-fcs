@@ -5,6 +5,6 @@
 #COPY --from=abacus /data.precompiled /var/lib/manatee/data
 COPY --from=diarium /var/lib/manatee /var/lib/manatee
 
-RUN apt-get update && apt-get install -y python3-pip && pip3 install pyyaml
+RUN apt-get update && apt-get install -y python3-yaml
 
 ENTRYPOINT ["/bin/bash", "-c", "python3 confgen.py && ./mquery-sru server conf-docker.json"]

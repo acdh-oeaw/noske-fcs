@@ -1,0 +1,32 @@
+src: https://dse-static-oai-pmh.acdh-dev.oeaw.ac.at/
+maintainer: mzoltak@oeaw.ac.at
+outputDir: data
+# paths used in the corpora configuration file
+basePath:
+  data: /var/lib/manatee/data
+  vertical: /opt/pipeline
+# udppipe or spacy
+backend: udppipe
+langMap:
+  # languages reported by the src endpoint to (No)Sketch Engine langages conversion
+  deu: German
+  ger: German
+  ita: Italian
+  lat: Latin
+udppipe:
+  apiUrl: https://lindat.mff.cuni.cz/services/udpipe/api/process
+  # languages as reported by the src endpoint
+  models:
+    deu: german-hdt-ud-2.15-241121
+    ger: german-hdt-ud-2.15-241121
+    eng: english-partut-ud-2.15-241121
+    ita: italian-partut-ud-2.15-241121
+    lat: latin-llct-ud-2.15-241121
+spacy:
+  # languages as reported by the src endpoint
+  models:
+    deu: de_dep_news_trf
+    ger: de_dep_news_trf
+    eng: en_core_web_trf
+    ita: it_core_news_lg
+    lat: it_core_news_lg

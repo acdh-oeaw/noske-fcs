@@ -31,6 +31,11 @@ The deployment is available under https://noske-fcs.acdh-ch-dev.oeaw.ac.at/, e.g
   (see comments inside the file)
 * Commit, push, run the build action.
 
+## Adding dse-static digital editions
+
+* See the README in the `dse-static-pipeline` directory.
+* Once you built the docker image, continue as described in the previous chapter.
+
 ## Links
 
 * [mquery-sru](https://github.com/czcorpus/mquery-sru)
@@ -39,3 +44,9 @@ The deployment is available under https://noske-fcs.acdh-ch-dev.oeaw.ac.at/, e.g
 * [Sketch Engine corpora config file reference](https://www.sketchengine.eu/documentation/corpus-configuration-file-all-features/)
 * [Hannes's gitlab.oeaw.ac.at repositories](https://gitlab.oeaw.ac.at/acdh-ch/hpirker/)
 * [noske-fcs namespace in Rancher](https://rancher.acdh-dev.oeaw.ac.at/dashboard/c/c-m-6hwgqq2g/explorer/namespace/noske-fcs#Workloads)
+
+## Compiling corpora from a vertical
+
+```
+compilecorp /var/lib/manatee/registry/{corporaName}
+```

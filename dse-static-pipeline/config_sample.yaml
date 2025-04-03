@@ -2,15 +2,17 @@ src: https://dse-static-oai-pmh.acdh-dev.oeaw.ac.at/
 maintainer: mzoltak@oeaw.ac.at
 outputDir: data
 # paths used in the corpora configuration file
+# keep them like that for the compatibility with the compile_corp.sh
 basePath:
   data: /var/lib/manatee/data
-  vertical: /opt/pipeline
+  vertical: /var/lib/manatee/registry
 # udppipe or spacy
 backend: udppipe
 langMap:
   # languages reported by the src endpoint to (No)Sketch Engine langages conversion
   deu: German
   ger: German
+  eng: English
   ita: Italian
   lat: Latin
 udppipe:
@@ -30,3 +32,58 @@ spacy:
     eng: en_core_web_trf
     ita: it_core_news_lg
     lat: it_core_news_lg
+# a static part of the (No)Sketch Engine corpora config file
+corporaConfig: |
+  ENCODING "UTF-8"
+  ATTRIBUTE word
+  ATTRIBUTE lemma
+  ATTRIBUTE pos
+  ATTRIBUTE lc {
+    DYNAMIC    utf8lowercase
+    DYNLIB     internal
+    ARG1       "C"
+    FUNTYPE    s
+    FROMATTR   word
+    TYPE       index
+    TRANSQUERY yes
+  }
+  ATTRIBUTE orth {
+    DYNAMIC    utf8lowercase
+    DYNLIB     internal
+    ARG1       "C"
+    FUNTYPE    s
+    FROMATTR   word
+    TYPE       index
+    TRANSQUERY yes
+  }
+  ATTRIBUTE norm {
+    DYNAMIC    utf8lowercase
+    DYNLIB     internal
+    ARG1       "C"
+    FUNTYPE    s
+    FROMATTR   word
+    TYPE       index
+    TRANSQUERY yes
+  }
+  ATTRIBUTE phonetic {
+    DYNAMIC    utf8lowercase
+    DYNLIB     internal
+    ARG1       "C"
+    FUNTYPE    s
+    FROMATTR   word
+    TYPE       index
+    TRANSQUERY yes
+  }
+  STRUCTURE doc {
+    ATTRIBUTE LandingPageURI
+  }
+  STRUCTURE chapter {
+    ATTRIBUTE ID
+    ATTRIBUTE LandingPageURI
+  }
+  STRUCTURE p
+  STRUCTURE s
+  STRUCTURE g {
+   DISPLAYTAG 0
+   DISPLAYBEGIN "_EMPTY_"
+  }

@@ -4,7 +4,7 @@ import os
 from argparse import ArgumentParser
 from lxml import etree as ET
 from re import match, sub
-from yaml import safe_load
+from yaml import dump, safe_load
 from time import perf_counter
 
 PAR_SEP = 'PaRaSeP'
@@ -99,9 +99,6 @@ def run_spacy(text: str, lang: str, cfg: dict) -> str:
 def create_vertical(corpora: dict, output_path: str, cfg: dict) -> dict:
     """Create vertical file and its config from corpus data."""
 
-    corpora["vertical"] = output_path
-    create_config(corpora, sub('[.][^.]+$', '', output_path), cfg)
-
     with open(output_path, 'w', encoding='utf-8') as vertical:
         vertical.write(f'<doc LandingPageURI="{corpora["landingPage"]}">\n')
         
@@ -174,43 +171,25 @@ def create_config(corpora: dict, output_path: str, cfg: dict) -> None:
         f.write(f'LANGUAGE "{cfg["langMap"][corpora["lang"]]}"\n')
         f.write(f'VERTICAL "{os.path.join(cfg["basePath"]["vertical"], os.path.basename(corpora["vertical"]))}"\n')
         # constant part
-        f.write('''
-ENCODING "UTF-8"
+        f.write(cfg['corporaConfig'])
 
-ATTRIBUTE word
-
-ATTRIBUTE lemma
-
-ATTRIBUTE pos
-
-ATTRIBUTE lc {
-	DYNAMIC    utf8lowercase
-	DYNLIB     internal
-	ARG1       "C"
-	FUNTYPE    s
-	FROMATTR   word
-	TYPE       index
-	TRANSQUERY yes
-}
-
-STRUCTURE doc {
-    ATTRIBUTE LandingPageURI
-}
-
-STRUCTURE chapter {
-	ATTRIBUTE ID
-    ATTRIBUTE LandingPageURI
-}
-
-STRUCTURE p
-
-STRUCTURE s
-
-STRUCTURE g {
-   DISPLAYTAG 0
-   DISPLAYBEGIN "_EMPTY_"
-}
-''')
+def create_mquery_sru_config(corpora: dict, output_path: str, cfg: dict) -> None:
+    with open(output_path, 'w') as f:
+        data = {
+            corpora['id']: {
+                'pid': '',
+                'title': {'en': corpora['id']},
+                'description': {'en': ''},
+                'landingPageURI': corpora['landingPage'],
+                'languages': [corpora['lang']],
+                'utterance': 's',
+                'paragraph': 'p',
+                'turn': 'p',
+                'text': 'chapter',
+                'session': 'chapter'
+            }
+        }
+        dump(data, f)
 
 def main():
     """Main function to process all endpoints."""
@@ -219,6 +198,8 @@ def main():
     parser.add_argument('-l', action='store_true', help='list all availble editions')
     parser.add_argument('-c', default='config.yaml', help='config file to use (default config.yaml)')
     parser.add_argument('-e', help='if specified, processes only single digital edition with a specified key')
+    parser.add_argument('-s', action='store_true', help='skip a given digital edition if the vertical file already exists')
+    parser.add_argument('--co', action='store_true', help='create only the config file - useful if only the corpora configuration file template was changed')
     args = parser.parse_args()
 
     with open(args.c, 'r') as f:
@@ -239,16 +220,25 @@ def main():
 
         key = sub('[^a-zA-Z0-9]', '', key)
         teis = get_tei_locations(val['oai'])
+        path_config = os.path.join(cfg['outputDir'], key)
+        path_vertical = f'{path_config}.vrt'
         corpora = {
             'id': key,
             'tei': teis,
             'xpath': val['fulltext_xpath'],
             'landingPage': sub('/[^/]*/?$', '', next(iter(teis.keys()))),
-            'lang': val['default_lang']
+            'lang': val['default_lang'],
+            'vertical': path_vertical
         }
         print(f"{key}: {corpora['lang']} {len(corpora['tei'])}")
-        
-        create_vertical(corpora, os.path.join(cfg['outputDir'], f"{key}.vrt"), cfg)
+       
+        if os.path.exists(path_vertical) and args.s:
+            print(f'    vertical file {path_vertical} already exists - skipping')
+            continue
+        create_config(corpora, path_config, cfg)
+        create_mquery_sru_config(corpora, f'{path_config}.yml', cfg)
+        if not args.co:
+            create_vertical(corpora, path_vertical, cfg)
 
 if __name__ == "__main__":
     main()

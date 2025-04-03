@@ -5,6 +5,7 @@
 #COPY --from=abacus /data.precompiled /var/lib/manatee/data
 COPY --from=diarium /var/lib/manatee /var/lib/manatee
 COPY --from=diarium /data.precompiled /var/lib/manatee/data
+COPY --from=dse_static /var/lib/manatee /var/lib/manatee
 
 RUN apt-get update && apt-get install -y python3-yaml
 

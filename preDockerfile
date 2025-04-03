@@ -1,4 +1,5 @@
 #FROM gitlab.oeaw.ac.at:5050/acdh-ch/hpirker/noske4tunocent/main AS tunocent
 #FROM ghcr.io/austrian-baroque-corpus/abc-search-indexer/noske-abacus AS abacus
 FROM ghcr.io/wiener-diarium/wr-indexer/diarium-noske:c804075 AS diarium
+FROM acdhch/noske-fcs-dse-static:latest AS dse_static
 

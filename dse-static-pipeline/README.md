@@ -6,6 +6,8 @@ and writing a (No)Sketch Engine-compatible [vertical file](https://www.sketcheng
 
 ## Usage
 
+### As a github action
+
 * Clone this repo and go into directory with this file
 * Install Python dependencies
   ```bash

@@ -19,11 +19,17 @@ jobs:
         done
         rm tmp.tar
     - name: create missing verticals
-      run: python3 create_verticals.py -c config_sample.yaml -s
+      run: |
+        cd dse-static-pipeline
+        python3 create_verticals.py -c config_sample.yaml -s
     - name: compile corpora
-      run: ./compile_corp.sh
+      run: |
+        cd dse-static-pipeline
+        ./compile_corp.sh
     - name: build updated image
-      run: ./build_image.sh
+      run: |
+        cd dse-static-pipeline
+        ./build_image.sh
     - uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKER_USERNAME }}

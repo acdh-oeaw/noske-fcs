@@ -11,9 +11,11 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 
 ### As a github action
 
-Go to https://github.com/acdh-oeaw/noske-fcs/actions/workflows/dse-static.yml and run the workflow.
-
-It will read the data from the existing `acdhch/noske-fcs-dse-static` image, run the `create_verticals.py`, `compile_corp.sh` and `build_image.sh` and push the resulting image to the registry.
+* Go to https://github.com/acdh-oeaw/noske-fcs/actions/workflows/dse-static.yml and run the workflow.
+  It will read the data from the existing `acdhch/noske-fcs-dse-static` image, run the `create_verticals.py`, `compile_corp.sh` and `build_image.sh` and push the resulting image to the registry.
+* Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora
+  (you can find them in the `data/*.yml` files), commit and push.
+* Run the [build action](https://github.com/acdh-oeaw/noske-fcs/actions/workflows/build.yml) or make a new release.
 
 ### By hand
 

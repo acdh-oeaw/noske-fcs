@@ -21,6 +21,9 @@ jobs:
     - name: create missing verticals
       run: |
         cd dse-static-pipeline
+        python3 -m venv env
+        source env/bin/activate
+        pip3 install -U -r requirements.txt
         python3 create_verticals.py -c config_sample.yaml -s
     - name: compile corpora
       run: |

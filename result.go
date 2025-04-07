@@ -20,6 +20,7 @@ package result
 
 import (
 	"github.com/czcorpus/mquery-common/concordance"
+    "github.com/czcorpus/mquery-sru/result"
 )
 
 const (
@@ -32,10 +33,10 @@ const (
 )
 
 type ConcResult struct {
-	Lines    []concordance.Line `json:"lines"`
-	ConcSize int                `json:"concSize"`
-	Query    string             `json:"query"`
-	Error    TransmittedError   `json:"error"`
+	Lines    []concordance.Line      `json:"lines"`
+	ConcSize int                     `json:"concSize"`
+	Query    string                  `json:"query"`
+	Error    result.TransmittedError `json:"error"`
 }
 
 func (res *ConcResult) NumLines() int {

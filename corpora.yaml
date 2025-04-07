@@ -56,7 +56,7 @@ akademieprotokolle:
   languages:
   - deu
   paragraph: p
-  pid: 
+  pid: https://fake.pid/1
   session: chapter
   text: chapter
   title:
@@ -70,7 +70,7 @@ amp:
   languages:
   - eng
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/2
   session: chapter
   text: chapter
   title:
@@ -84,7 +84,7 @@ bvg:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/3
   session: chapter
   text: chapter
   title:
@@ -98,7 +98,7 @@ familiensache:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/3
   session: chapter
   text: chapter
   title:
@@ -112,7 +112,7 @@ grazernuntiatur:
   languages:
   - ita
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/4
   session: chapter
   text: chapter
   title:
@@ -140,7 +140,7 @@ nuntiaturpiusxi:
   languages:
   - ita
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/5
   session: chapter
   text: chapter
   title:
@@ -154,7 +154,7 @@ schnitzlerbriefe:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/6
   session: chapter
   text: chapter
   title:
@@ -168,7 +168,7 @@ tillichlectures:
   languages:
   - eng
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/7
   session: chapter
   text: chapter
   title:
@@ -182,7 +182,7 @@ wmp1:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: https://fake.pid/8
   session: chapter
   text: chapter
   title:

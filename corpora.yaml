@@ -14,27 +14,27 @@
 #  languages:
 #  - ara
 #  # mappings for structures used by the mquery-sru
-#  utterance: g
-#  paragraph: g
-#  turn: g
+#  utterance: p
+#  paragraph: p
+#  turn: p
 #  text: doc
 #  session: doc
-diarium:
-  pid: diariumPid
-  title:
-    en: The Viennese Diary
-    de: Das Wien[n]erische Diarium
-  description:
-    en: The Wiener[n]erisches Diarium, available in print form as the Wiener Zeitung until June 2023, was the most important medium of the Habsburg monarchy in the 18th century. The fact that all editions have been preserved since its founding in 1703 makes it a historical source of particular value, as it documents numerous historical events, people and places. Changes in language and the development of journalism can also be researched over the years. The Wiener[n]erisches Diarium is therefore an important source for many humanities disciplines, such as historical linguistics, historical media studies, art history, music history, social history and many more.
-    de: Das Wien[n]erische Diarium, bis Juni 2023 in gedruckter Form als Wiener Zeitundeuhältlich, war im 18. Jahrhundert das bedeutendste Medium der Habsburdeumonarchie. Dass sich seit seiner Gründung 1703 sämtliche Ausgaben erhalten haben, macht es zu einer historischen Quelle von besonderem Wert, denn es dokumentiert zahlreiche historische Ereignisse, Personen und Orte. Auch Veränderungen der Sprache und die Entwicklung des Journalismus lassen sich über die Jahre hinweg erforschen. Für viele geisteswissenschaftliche Disziplinen ist das Wien[n]erische Diarium daher eine wichtige Quelle, etwa für die historische Sprachwissenschaft, historische Medienwissenschaft, Kunstgeschichte, Musikgeschichte, Sozialgeschichte u.v.m.
-  landingPageURI: https://digitarium.acdh.oeaw.ac.at/
-  languages:
-  - deu
-  utterance: p
-  paragraph: p
-  turn: g
-  text: doc
-  session: doc
+#diarium:
+#  pid: diariumPid
+#  title:
+#    en: The Viennese Diary
+#    de: Das Wien[n]erische Diarium
+#  description:
+#    en: The Wiener[n]erisches Diarium, available in print form as the Wiener Zeitung until June 2023, was the most important medium of the Habsburg monarchy in the 18th century. The fact that all editions have been preserved since its founding in 1703 makes it a historical source of particular value, as it documents numerous historical events, people and places. Changes in language and the development of journalism can also be researched over the years. The Wiener[n]erisches Diarium is therefore an important source for many humanities disciplines, such as historical linguistics, historical media studies, art history, music history, social history and many more.
+#    de: Das Wien[n]erische Diarium, bis Juni 2023 in gedruckter Form als Wiener Zeitundeuhältlich, war im 18. Jahrhundert das bedeutendste Medium der Habsburdeumonarchie. Dass sich seit seiner Gründung 1703 sämtliche Ausgaben erhalten haben, macht es zu einer historischen Quelle von besonderem Wert, denn es dokumentiert zahlreiche historische Ereignisse, Personen und Orte. Auch Veränderungen der Sprache und die Entwicklung des Journalismus lassen sich über die Jahre hinweg erforschen. Für viele geisteswissenschaftliche Disziplinen ist das Wien[n]erische Diarium daher eine wichtige Quelle, etwa für die historische Sprachwissenschaft, historische Medienwissenschaft, Kunstgeschichte, Musikgeschichte, Sozialgeschichte u.v.m.
+#  landingPageURI: https://digitarium.acdh.oeaw.ac.at/
+#  languages:
+#  - deu
+#  utterance: p
+#  paragraph: p
+#  turn: p
+#  text: doc
+#  session: doc
 #abacus:
 #  pid: abacusPid
 #  title:
@@ -44,21 +44,7 @@ diarium:
 #  landingPageURI: http://abacus
 #  languages:
 #  - deu
-#  utterance: g
-#  paragraph: g
-#  turn: doc
-#  text: doc
-#  session: doc
-#susanne:
-#  pid: susannePid
-#  title:
-#    en: susanne
-#  description:
-#    en: Susanne corpora
-#  landingPageURI: http://susanne
-#  languages:
-#  - eng
-#  utterance: g
+#  utterance: p
 #  paragraph: p
 #  turn: p
 #  text: doc
@@ -70,7 +56,7 @@ akademieprotokolle:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: 
   session: chapter
   text: chapter
   title:
@@ -140,7 +126,7 @@ gtrans:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: https://hdl.handle.net/21.11115/0000-000E-558C-5
   session: chapter
   text: chapter
   title:

@@ -292,7 +292,7 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 		result := <-wait
 		if result.Error.Error() == "TransmittedError(*errors.errorString: rows range is out of concordance size)" {
         	log.Warn().Msg("ErrRowsRangeOutOfConc")
-			fromResource.RscSetErrorAt(i, err)
+			fromResource.RscSetErrorAt(i, result.Error)
 		} else if result.Error != nil {
 	        log.Warn().Msg("OTHER ERROR START")
 	        log.Warn().Msg(result.Error.Error())

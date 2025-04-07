@@ -164,7 +164,7 @@ def create_config(corpora: dict, output_path: str, cfg: dict) -> None:
     with open(output_path, 'w') as f:
         # variable part
         f.write(f'MAINTAINER "{cfg["maintainer"]}"\n')
-        f.write(f'INFO "{corpora["id"]}"\n')
+        f.write(f'INFO "{corpora["title"]}"\n')
         f.write(f'NAME "{corpora["id"]}"\n')
         f.write(f'INFOHREF "{corpora["landingPage"]}"\n')
         f.write(f'PATH "{os.path.join(cfg["basePath"]["data"], corpora["id"])}"\n')
@@ -174,14 +174,15 @@ def create_config(corpora: dict, output_path: str, cfg: dict) -> None:
         f.write(cfg['corporaConfig'])
 
 def create_mquery_sru_config(corpora: dict, output_path: str, cfg: dict) -> None:
+    lang = corpora['lang']
     with open(output_path, 'w') as f:
         data = {
             corpora['id']: {
                 'pid': '',
-                'title': {'en': corpora['id']},
-                'description': {'en': ''},
+                'title': {lang: corpora['title']},
+                'description': {lang: ''},
                 'landingPageURI': corpora['landingPage'],
-                'languages': [corpora['lang']],
+                'languages': [lang],
                 'utterance': 's',
                 'paragraph': 'p',
                 'turn': 'p',
@@ -224,6 +225,7 @@ def main():
         path_vertical = f'{path_config}.vrt'
         corpora = {
             'id': key,
+            'title': val['title'],
             'tei': teis,
             'xpath': val['fulltext_xpath'],
             'landingPage': sub('/[^/]*/?$', '', next(iter(teis.keys()))),

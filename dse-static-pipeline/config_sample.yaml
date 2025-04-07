@@ -8,8 +8,8 @@ basePath:
   vertical: /var/lib/manatee/registry
 # udppipe or spacy
 backend: udppipe
+# languages reported by the src endpoint to (No)Sketch Engine langages conversion
 langMap:
-  # languages reported by the src endpoint to (No)Sketch Engine langages conversion
   deu: German
   ger: German
   eng: English

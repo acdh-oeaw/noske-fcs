@@ -287,16 +287,11 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 	fromResource := result.NewRoundRobinLineSel(maximumRecords, ranges.PIDList()...)
 	usedQueries := make(map[string]string) // maps resource ID to Manatee CQL query
 	var totalConcSize int
-	log.Warn().Msg("LOOP START")
 	for i, wait := range waits {
 		result := <-wait
 		if result.Error != nil && result.Error.Error() == "TransmittedError(*errors.errorString: rows range is out of concordance size)" {
-        	log.Warn().Msg("ErrRowsRangeOutOfConc")
 			fromResource.RscSetErrorAt(i, result.Error)
 		} else if result.Error != nil {
-	        log.Warn().Msg("OTHER ERROR START")
-	        log.Warn().Msg(result.Error.Error())
-	        log.Warn().Msg("OTHER ERROR END")
 			ans.Diagnostics = schema.NewXMLDiagnostics()
 			ans.Diagnostics.AddDfltMsgDiagnostic(
 				general.DCQueryCannotProcess, 0, result.Error.Error())
@@ -306,11 +301,9 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 		usedQueries[ranges[i].Rsc] = result.Query
 		totalConcSize += result.ConcSize
 	}
-	log.Warn().Msg("LOOP END")
 
 	ans.NumberOfRecords = totalConcSize
 	if fromResource.AllHasOutOfRangeError() {
-	    log.Warn().Msg("ALL OUT OF RANGE")
 		ans.Diagnostics = schema.NewXMLDiagnostics()
 		ans.Diagnostics.AddDfltMsgDiagnostic(
 			general.DCFirstRecordPosOutOfRange, 0, fromResource.GetFirstError().Error())

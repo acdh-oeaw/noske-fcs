@@ -295,7 +295,9 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 			fromResource.RscSetErrorAt(i, err)
 
 		} else if result.Error != nil {
-	        log.Warn().Msg("OTHER ERROR")
+	        log.Warn().Msg("OTHER ERROR START")
+	        log.Warn().Msg(result.Error.Error())
+	        log.Warn().Msg("OTHER ERROR END")
 			ans.Diagnostics = schema.NewXMLDiagnostics()
 			ans.Diagnostics.AddDfltMsgDiagnostic(
 				general.DCQueryCannotProcess, 0, result.Error.Error())

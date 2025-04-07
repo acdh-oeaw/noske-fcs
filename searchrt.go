@@ -309,7 +309,18 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 	log.Warn().Msg("LOOP END")
 
 	ans.NumberOfRecords = totalConcSize
+    for _, v := range fromResource.items {
+        if v.Err != nil && v.Err.Error() == "TransmittedError(*errors.errorString: rows range is out of concordance size)" {
+            log.Warn().Msg("OK")
+        } else if v.Err != nil {
+            log.Warn().Msg("OTHER ERR")
+            log.Warn().Msg(v.Err.Error())
+        } else {
+            log.Warn().Msg("NOT OK")
+        }
+    }
 	if fromResource.AllHasOutOfRangeError() {
+	    log.Warn().Msg("ALL OUT OF RANGE")
 		ans.Diagnostics = schema.NewXMLDiagnostics()
 		ans.Diagnostics.AddDfltMsgDiagnostic(
 			general.DCFirstRecordPosOutOfRange, 0, fromResource.GetFirstError().Error())

@@ -22,7 +22,6 @@ import (
 	"fmt"
 
 	"github.com/czcorpus/mquery-common/concordance"
-	"github.com/czcorpus/mquery-sru/mango"
 )
 
 type item struct {

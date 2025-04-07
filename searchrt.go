@@ -290,7 +290,7 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 	log.Warn().Msg("LOOP START")
 	for i, wait := range waits {
 		result := <-wait
-		if result.Error == mango.ErrRowsRangeOutOfConc {
+		if result.Error.Error() == "rows range is out of concordance size" {
         	log.Warn().Msg("ErrRowsRangeOutOfConc")
 			fromResource.RscSetErrorAt(i, err)
 

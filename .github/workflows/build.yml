@@ -13,9 +13,9 @@ jobs:
         git clone https://github.com/czcorpus/mquery-sru.git
         cp config.json mquery-sru/conf-docker.json
         cp confgen.py corpora.yaml mquery-sru/
-        cp searchrt.go mquery-sru/handler/v20/searchrt.go
-        cp rscrr.go mquery-sru/result/rscrr.go
-        cp result.go mquery-sru/result/result.go
+        #cp searchrt.go mquery-sru/handler/v20/searchrt.go
+        #cp rscrr.go mquery-sru/result/rscrr.go
+        sed -i -e 's/rows range is out of concordance size/TransmittedError(*errors.errorString: rows range is out of concordance size)/' mquery-sru/mango/mango.go
         cat preDockerfile mquery-sru/Dockerfile postDockerfile > tmp && mv tmp mquery-sru/Dockerfile
     - name: docker build
       run: docker build -t acdhch/noske-fcs --label "buildUrl=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" mquery-sru

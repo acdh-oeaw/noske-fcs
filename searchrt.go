@@ -290,13 +290,13 @@ func (a *FCSSubHandlerV20) searchRetrieve(ctx *gin.Context, fcsResponse *FCSRequ
 	log.Warn().Msg("LOOP START")
 	for i, wait := range waits {
 		result := <-wait
-		if result.Error.Error() == "rows range is out of concordance size" {
+		if result.Error.Message == "rows range is out of concordance size" {
         	log.Warn().Msg("ErrRowsRangeOutOfConc")
 			fromResource.RscSetErrorAt(i, err)
 
 		} else if result.Error != nil {
 	        log.Warn().Msg("OTHER ERROR START")
-	        log.Warn().Msg(result.Error.Error())
+	        log.Warn().Msg(result.Error.Message)
 	        log.Warn().Msg("OTHER ERROR END")
 			ans.Diagnostics = schema.NewXMLDiagnostics()
 			ans.Diagnostics.AddDfltMsgDiagnostic(

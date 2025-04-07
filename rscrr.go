@@ -107,7 +107,6 @@ func (r *RoundRobinLineSel) RscSetErrorAt(idx int, err error) {
 	for _, v := range r.items {
 		if v.Err != nil && v.Err.Error() == "TransmittedError(*errors.errorString: rows range is out of concordance size)" {
             log.Warn().Msg("_OK")
-			numMatch++
 		} else if v.Err != nil {
             log.Warn().Msg("_OTHER ERROR")
             log.Warn().Msg(v.Err.Error())

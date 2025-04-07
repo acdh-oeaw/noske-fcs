@@ -104,6 +104,17 @@ func (r *RoundRobinLineSel) SetRscLines(rsc string, c ConcResult) {
 // the iteration may continue, but the errored resource is skipped.
 func (r *RoundRobinLineSel) RscSetErrorAt(idx int, err error) {
 	r.items[idx].Err = err
+	for _, v := range r.items {
+		if v.Err != nil && v.Err.Error() == "TransmittedError(*errors.errorString: rows range is out of concordance size)" {
+            log.Warn().Msg("_OK")
+			numMatch++
+		} else if v.Err != nil {
+            log.Warn().Msg("_OTHER ERROR")
+            log.Warn().Msg(v.Err.Error())
+        } else {
+            log.Warn().Msg("_NOT OK")
+        }
+    }
 }
 
 // CurrRscGetError returns possible error for the current resource.
@@ -133,7 +144,7 @@ func (r *RoundRobinLineSel) AllHasOutOfRangeError() bool {
 			numMatch++
 		} else if v.Err != nil {
             log.Warn().Msg("OTHER ERROR")
-            log.Warn().Msg("v.Err.Error()")
+            log.Warn().Msg(v.Err.Error())
         } else {
             log.Warn().Msg("NOT OK")
         }

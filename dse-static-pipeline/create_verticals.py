@@ -178,7 +178,7 @@ def create_mquery_sru_config(corpora: dict, output_path: str, cfg: dict) -> None
     with open(output_path, 'w') as f:
         data = {
             corpora['id']: {
-                'pid': '',
+                'pid': corpora['pid'],
                 'title': {lang: corpora['title']},
                 'description': {lang: ''},
                 'landingPageURI': corpora['landingPage'],
@@ -228,8 +228,9 @@ def main():
             'title': val['title'],
             'tei': teis,
             'xpath': val['fulltext_xpath'],
-            'landingPage': sub('/[^/]*/?$', '', next(iter(teis.keys()))),
+            'landingPage': val['landingpage'],
             'lang': val['default_lang'],
+            'pid': val['pid'],
             'vertical': path_vertical
         }
         print(f"{key}: {corpora['lang']} {len(corpora['tei'])}")

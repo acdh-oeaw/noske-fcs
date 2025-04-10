@@ -96,7 +96,55 @@ def run_spacy(text: str, lang: str, cfg: dict) -> str:
     vertical += "</s>\n</p>\n"
     return vertical
 
-def create_vertical(corpora: dict, output_path: str, cfg: dict) -> bool:
+def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) -> bool:
+    html_url = tei_url.replace('.xml', '.html')
+    t1 = perf_counter()
+    response = requests.get(tei_url)
+    t2 = perf_counter()
+
+    tei_content = response.text
+    tei_content = tei_content.replace('<lb/>', ' ')
+           
+    tree = ET.fromstring(tei_content.encode('utf-8'))
+    nsmap = {'tei': 'http://www.tei-c.org/ns/1.0'}
+            
+    vertical.write(f'<chapter ID="{corpora["id"]}" LandingPageURI="{html_url}">\n')
+            
+    last_p = None
+    text = ''
+            
+    for element in tree.xpath(corpora['xpath'], namespaces=nsmap):
+        part = element.replace("\n", ' ').replace("\r", ' ').strip()
+        if part == '':
+            continue
+                    
+        p = get_paragraph(element.getparent())
+        if last_p is None:
+            last_p = p
+        if p != last_p:
+            text += f' {PAR_SEP} '
+            last_p = p
+        text += part + " "
+        
+    t3 = perf_counter()
+    if cfg['backend'] == 'udppipe':
+        processed = run_udp(text.strip(), corpora['lang'], cfg['udppipe'])
+    else:
+        processed = run_spacy(text.strip(), corpora['lang'], cfg['spacy'])
+    t4 = perf_counter()
+    tokens = processed.count('\n')
+
+    vertical.write(processed.replace("<s>\n</s>\n", '').replace("<p>\n</p>\n", ''))
+    vertical.write("</chapter>\n")
+            
+    t5 = perf_counter()
+    time['download'] += t2 - t1
+    time['nlp']  += t4 - t3
+    time['tokens'] += tokens
+    print(f'        dwnld {round(t2 - t1, 2)}s nlp {round(t4 - t3, 2)}s total {round(t5 - t1, 2)}s tokens {tokens}')
+    return True    
+
+def create_vertical(corpora: dict, output_path: str, cfg: dict):
     """Create vertical file and its config from corpus data."""
 
     with open(output_path, 'w', encoding='utf-8') as vertical:
@@ -107,53 +155,15 @@ def create_vertical(corpora: dict, output_path: str, cfg: dict) -> bool:
         n = 1
         for tei_url, title in corpora['tei'].items():
             print(f'    {tei_url} ({n}/{N} {round(100 * n / N, 1)}%)')
-            html_url = tei_url.replace('.xml', '.html')
-            t1 = perf_counter()
-            response = requests.get(tei_url)
-            t2 = perf_counter()
-
-            tei_content = response.text
-            tei_content = tei_content.replace('<lb/>', ' ')
-           
-            tree = ET.fromstring(tei_content.encode('utf-8'))
-            nsmap = {'tei': 'http://www.tei-c.org/ns/1.0'}
-            
-            vertical.write(f'<chapter ID="{corpora["id"]}" LandingPageURI="{html_url}">\n')
-            
-            last_p = None
-            text = ''
-            
-            for element in tree.xpath(corpora['xpath'], namespaces=nsmap):
-                part = element.replace("\n", ' ').replace("\r", ' ').strip()
-                if part == '':
-                    continue
-                    
-                p = get_paragraph(element.getparent())
-                if last_p is None:
-                    last_p = p
-                if p != last_p:
-                    text += f' {PAR_SEP} '
-                    last_p = p
-                text += part + " "
-        
-            t3 = perf_counter()
-            if cfg['backend'] == 'udppipe':
-                processed = run_udp(text.strip(), corpora['lang'], cfg['udppipe'])
-            else:
-                processed = run_spacy(text.strip(), corpora['lang'], cfg['spacy'])
-            t4 = perf_counter()
-            tokens = processed.count('\n')
-
-            vertical.write(processed.replace("<s>\n</s>\n", '').replace("<p>\n</p>\n", ''))
-            vertical.write("</chapter>\n")
-            
-            t5 = perf_counter()
-            time['download'] += t2 - t1
-            time['nlp']  += t4 - t3
-            time['tokens'] += tokens
-            print(f'        dwnld {round(t2 - t1, 2)}s nlp {round(t4 - t3, 2)}s total {round(t5 - t1, 2)}s tokens {tokens}')
+            for i in range(10):
+                try:
+                    if process_tei(tei_url, vertical, corpora, cfg, time):
+                        break
+                except Exception as e:
+                    print(f'{e}')
+                sleep(5)
             n += 1
-            
+  
         vertical.write("</doc>\n")
 
         time['total'] = perf_counter() - time['total']
@@ -242,13 +252,7 @@ def main():
         create_config(corpora, path_config, cfg)
         create_mquery_sru_config(corpora, f'{path_config}.yml', cfg)
         if not args.co:
-            for i in range(10):
-                try:
-                    if create_vertical(corpora, path_vertical, cfg):
-                        break
-                except Exception as e:
-                    print(f'{e}')
-                sleep(5)
+            create_vertical(corpora, path_vertical, cfg)
 
 if __name__ == "__main__":
     main()

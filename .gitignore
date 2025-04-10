@@ -2,4 +2,5 @@
 /dse-static-pipeline/config.yaml
 /dse-static-pipeline/env
 /dse-static-pipeline/data*
+/noske-pipeline/verticals
 /dse-static-pipeline/compiled

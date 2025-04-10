@@ -39,6 +39,10 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
   cp config_sample.yaml config.yaml
   ````
   and adjust the `config.yaml` contents
+* Optionally extract already existing data
+  ```bash
+  ./extract_existing.sh
+  ```
 * Run with
   ```bash
   python3 create_verticals.py

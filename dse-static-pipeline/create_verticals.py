@@ -5,7 +5,7 @@ from argparse import ArgumentParser
 from lxml import etree as ET
 from re import match, sub
 from yaml import dump, safe_load
-from time import perf_counter
+from time import perf_counter, sleep
 
 PAR_SEP = 'PaRaSeP'
 
@@ -96,13 +96,13 @@ def run_spacy(text: str, lang: str, cfg: dict) -> str:
     vertical += "</s>\n</p>\n"
     return vertical
 
-def create_vertical(corpora: dict, output_path: str, cfg: dict) -> dict:
+def create_vertical(corpora: dict, output_path: str, cfg: dict) -> bool:
     """Create vertical file and its config from corpus data."""
 
     with open(output_path, 'w', encoding='utf-8') as vertical:
         vertical.write(f'<doc LandingPageURI="{corpora["landingPage"]}">\n')
         
-        time = {'download': 0.0, 'process': 0.0, 'total': perf_counter(), 'tokens': 0}
+        time = {'download': 0.0, 'nlp': 0.0, 'total': perf_counter(), 'tokens': 0}
         N = len(corpora['tei'])
         n = 1
         for tei_url, title in corpora['tei'].items():
@@ -114,7 +114,7 @@ def create_vertical(corpora: dict, output_path: str, cfg: dict) -> dict:
 
             tei_content = response.text
             tei_content = tei_content.replace('<lb/>', ' ')
-            
+           
             tree = ET.fromstring(tei_content.encode('utf-8'))
             nsmap = {'tei': 'http://www.tei-c.org/ns/1.0'}
             
@@ -149,7 +149,7 @@ def create_vertical(corpora: dict, output_path: str, cfg: dict) -> dict:
             
             t5 = perf_counter()
             time['download'] += t2 - t1
-            time['process']  += t4 - t3
+            time['nlp']  += t4 - t3
             time['tokens'] += tokens
             print(f'        dwnld {round(t2 - t1, 2)}s nlp {round(t4 - t3, 2)}s total {round(t5 - t1, 2)}s tokens {tokens}')
             n += 1
@@ -159,6 +159,7 @@ def create_vertical(corpora: dict, output_path: str, cfg: dict) -> dict:
         time['total'] = perf_counter() - time['total']
         time = {k: round(v, 2) for k, v in time.items()}
         print(f'    {time}')
+        return True
 
 def create_config(corpora: dict, output_path: str, cfg: dict) -> None:
     with open(output_path, 'w') as f:
@@ -241,7 +242,13 @@ def main():
         create_config(corpora, path_config, cfg)
         create_mquery_sru_config(corpora, f'{path_config}.yml', cfg)
         if not args.co:
-            create_vertical(corpora, path_vertical, cfg)
+            for i in range(10):
+                try:
+                    if create_vertical(corpora, path_vertical, cfg):
+                        break
+                except Exception as e:
+                    print(f'{e}')
+                sleep(5)
 
 if __name__ == "__main__":
     main()

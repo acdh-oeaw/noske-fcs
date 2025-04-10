@@ -1,6 +1,16 @@
 src: https://dse-static-oai-pmh.acdh-dev.oeaw.ac.at/
 maintainer: mzoltak@oeaw.ac.at
 outputDir: data
+# verticals tags mapping schema
+tags:
+  chapter:
+  - doc
+  paragraph:
+  - imprimatur
+  - head
+  - annotationBlock
+  - connecteds
+  - u
 # paths used in the corpora configuration file
 # keep them like that for the compatibility with the compile_corp.sh
 basePath:
@@ -10,6 +20,7 @@ basePath:
 backend: udppipe
 # languages reported by the src endpoint to (No)Sketch Engine langages conversion
 langMap:
+  ara: Arabic
   deu: German
   ger: German
   eng: English
@@ -19,6 +30,7 @@ udppipe:
   apiUrl: https://lindat.mff.cuni.cz/services/udpipe/api/process
   # languages as reported by the src endpoint
   models:
+    ara: arabic-padt-ud-2.15-241121
     deu: german-hdt-ud-2.15-241121
     ger: german-hdt-ud-2.15-241121
     eng: english-partut-ud-2.15-241121

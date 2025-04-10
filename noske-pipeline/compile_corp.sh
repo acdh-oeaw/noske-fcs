@@ -1,0 +1,1 @@
+../dse-static-pipeline/compile_corp.sh

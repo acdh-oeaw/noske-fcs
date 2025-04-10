@@ -1,0 +1,1 @@
+../dse-static-pipeline/build_image.sh

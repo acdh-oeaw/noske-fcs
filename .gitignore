@@ -1,6 +1,7 @@
 /mquery-sru
-/dse-static-pipeline/config.yaml
-/dse-static-pipeline/env
-/dse-static-pipeline/data*
-/noske-pipeline/verticals
-/dse-static-pipeline/compiled
+/*-pipeline/config.yaml
+/*-pipeline/env
+/*-pipeline/data*
+/*-pipeline/verticals
+/*-pipeline/compiled
+__pycache__

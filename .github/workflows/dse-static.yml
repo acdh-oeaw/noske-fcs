@@ -10,6 +10,8 @@ jobs:
       run: |
         cd dse-static-pipeline
         ./extract_existing.sh
+        echo "### Existing data:"
+        ls -1 data
     - name: create missing verticals
       run: |
         cd dse-static-pipeline

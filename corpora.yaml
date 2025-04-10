@@ -1,54 +1,75 @@
-# name of the noske registry file
-#tunocent:
-#  # corpora PID to be reported in the <ed:Resource> of the SRU explain
-#  pid: tunocentPid
-#  # corpora title to be reported as <ed:Resource>/<ed:Title> of the SRU explain
-#  title: 
-#    en: Tunocent
-#  # corpora description to be reported as <ed:Resource>/<ed:Description> of the SRU explain
-#  description:
-#    en: Tunocent corpora
-#  # corpora website URI to be reported as <ed:Resource>/<ed:LandingPageURI> of the SRU explain
-#  landingPageURI: http://tunocent
-#  # corpora languages to be reported as <ed:Resource>/<ed:Languages> of the SRU explain
-#  languages:
-#  - ara
-#  # mappings for structures used by the mquery-sru
-#  utterance: p
-#  paragraph: p
-#  turn: p
-#  text: doc
-#  session: doc
-#diarium:
-#  pid: diariumPid
-#  title:
-#    en: The Viennese Diary
-#    de: Das Wien[n]erische Diarium
-#  description:
-#    en: The Wiener[n]erisches Diarium, available in print form as the Wiener Zeitung until June 2023, was the most important medium of the Habsburg monarchy in the 18th century. The fact that all editions have been preserved since its founding in 1703 makes it a historical source of particular value, as it documents numerous historical events, people and places. Changes in language and the development of journalism can also be researched over the years. The Wiener[n]erisches Diarium is therefore an important source for many humanities disciplines, such as historical linguistics, historical media studies, art history, music history, social history and many more.
-#    de: Das Wien[n]erische Diarium, bis Juni 2023 in gedruckter Form als Wiener Zeitundeuhältlich, war im 18. Jahrhundert das bedeutendste Medium der Habsburdeumonarchie. Dass sich seit seiner Gründung 1703 sämtliche Ausgaben erhalten haben, macht es zu einer historischen Quelle von besonderem Wert, denn es dokumentiert zahlreiche historische Ereignisse, Personen und Orte. Auch Veränderungen der Sprache und die Entwicklung des Journalismus lassen sich über die Jahre hinweg erforschen. Für viele geisteswissenschaftliche Disziplinen ist das Wien[n]erische Diarium daher eine wichtige Quelle, etwa für die historische Sprachwissenschaft, historische Medienwissenschaft, Kunstgeschichte, Musikgeschichte, Sozialgeschichte u.v.m.
-#  landingPageURI: https://digitarium.acdh.oeaw.ac.at/
-#  languages:
-#  - deu
-#  utterance: p
-#  paragraph: p
-#  turn: p
-#  text: doc
-#  session: doc
-#abacus:
-#  pid: abacusPid
-#  title:
-#    en: Abacus
-#  description:
-#    en: Abacus corpora
-#  landingPageURI: http://abacus
-#  languages:
-#  - deu
-#  utterance: p
-#  paragraph: p
-#  turn: p
-#  text: doc
-#  session: doc
+abacus:
+  description:
+    deu: ''
+  landingPageURI: https://acdh.oeaw.ac.at/abacus/
+  languages:
+  - deu
+  paragraph: p
+  pid: ''
+  session: chapter
+  text: chapter
+  title:
+    en: Austrian Baroque Corpus
+  turn: p
+  utterance: s
+shawi:
+  description:
+    en: ''
+  landingPageURI: https://www.oeaw.ac.at/acdh/research/linguistics/research/corpus-linguistics/shawi-the-shawi-type-arabic-dialects
+  languages:
+  - ara
+  paragraph: p
+  pid: https://www.oeaw.ac.at/acdh/research/linguistics/research/corpus-linguistics/shawi-the-shawi-type-arabic-dialects
+  session: chapter
+  text: chapter
+  title:
+    en:  Shawi-type Arabic Dialects Corpus
+  turn: p
+  utterance: s
+tunocent:
+  pid: https://tunocent.acdh.oeaw.ac.at/
+  title: 
+    en: Tunocent
+  description:
+    en: Tunocent corpora
+  landingPageURI: https://tunocent.acdh.oeaw.ac.at/
+  languages:
+  - ara
+  utterance: p
+  paragraph: p
+  turn: p
+  text: doc
+  session: doc
+wibarab:
+  description:
+    en: ''
+  landingPageURI: https://wibarab.acdh.oeaw.ac.at/
+  languages:
+  - ara
+  paragraph: p
+  pid: https://wibarab.acdh.oeaw.ac.at/
+  session: chapter
+  text: chapter
+  title:
+    en: Bedouin-Type Arabic Corpus
+  turn: p
+  utterance: s
+wiener-diarium:
+  pid: diariumPid
+  title:
+    en: The Viennese Diary
+    de: Das Wien[n]erische Diarium
+  description:
+    en: The Wiener[n]erisches Diarium, available in print form as the Wiener Zeitung until June 2023, was the most important medium of the Habsburg monarchy in the 18th century. The fact that all editions have been preserved since its founding in 1703 makes it a historical source of particular value, as it documents numerous historical events, people and places. Changes in language and the development of journalism can also be researched over the years. The Wiener[n]erisches Diarium is therefore an important source for many humanities disciplines, such as historical linguistics, historical media studies, art history, music history, social history and many more.
+    de: Das Wien[n]erische Diarium, bis Juni 2023 in gedruckter Form als Wiener Zeitundeuhältlich, war im 18. Jahrhundert das bedeutendste Medium der Habsburdeumonarchie. Dass sich seit seiner Gründung 1703 sämtliche Ausgaben erhalten haben, macht es zu einer historischen Quelle von besonderem Wert, denn es dokumentiert zahlreiche historische Ereignisse, Personen und Orte. Auch Veränderungen der Sprache und die Entwicklung des Journalismus lassen sich über die Jahre hinweg erforschen. Für viele geisteswissenschaftliche Disziplinen ist das Wien[n]erische Diarium daher eine wichtige Quelle, etwa für die historische Sprachwissenschaft, historische Medienwissenschaft, Kunstgeschichte, Musikgeschichte, Sozialgeschichte u.v.m.
+  landingPageURI: https://digitarium.acdh.oeaw.ac.at/
+  languages:
+  - deu
+  utterance: p
+  paragraph: p
+  turn: p
+  text: doc
+  session: doc
 akademieprotokolle:
   description:
     en: ''
@@ -159,6 +180,20 @@ schnitzlerbriefe:
   text: chapter
   title:
     en: schnitzlerbriefe
+  turn: p
+  utterance: s
+schnitzlertagebuch:
+  description:
+    deu: ''
+  landingPageURI: https://schnitzler-tagebuch.acdh.oeaw.ac.at
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0016-84BB-0
+  session: chapter
+  text: chapter
+  title:
+    deu: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
   turn: p
   utterance: s
 tillichlectures:

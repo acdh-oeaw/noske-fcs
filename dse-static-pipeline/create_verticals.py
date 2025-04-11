@@ -185,7 +185,7 @@ def create_config(corpora: dict, output_path: str, cfg: dict) -> None:
         f.write(cfg['corporaConfig'])
 
 def create_mquery_sru_config(corpora: dict, output_path: str, cfg: dict) -> None:
-    lang = corpora['lang']
+    lang = corpora['lang'][0:2]
     with open(output_path, 'w') as f:
         data = {
             corpora['id']: {

@@ -1,6 +1,6 @@
 abacus:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://acdh.oeaw.ac.at/abacus/
   languages:
   - deu
@@ -73,7 +73,7 @@ wiener-diarium:
 # DSE-STATIC
 akademieprotokolle:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://akademieprotokolle.acdh.oeaw.ac.at
   languages:
   - deu
@@ -82,12 +82,12 @@ akademieprotokolle:
   session: chapter
   text: chapter
   title:
-    deu: "Sitzungsprotokolle der \xD6sterreichischen Akademie der Wissenschaften."
+    de: "Sitzungsprotokolle der \xD6sterreichischen Akademie der Wissenschaften."
   turn: p
   utterance: s
 amp:
   description:
-    eng: ''
+    en: ''
   landingPageURI: https://csae8092.github.io/amp-app
   languages:
   - eng
@@ -96,13 +96,13 @@ amp:
   session: chapter
   text: chapter
   title:
-    eng: 'Auden Musulin Papers: A Digital Edition of W. H. Auden''s Letters to Stella
+    en: 'Auden Musulin Papers: A Digital Edition of W. H. Auden''s Letters to Stella
       Musulin.'
   turn: p
   utterance: s
 bvg:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://b-vg.acdh.oeaw.ac.at
   languages:
   - deu
@@ -111,12 +111,12 @@ bvg:
   session: chapter
   text: chapter
   title:
-    deu: Die Entstehung des Bundes-Verfassungsgesetzes 1920.
+    de: Die Entstehung des Bundes-Verfassungsgesetzes 1920.
   turn: p
   utterance: s
 familiensache:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://kaiserin-eleonora.oeaw.ac.at
   languages:
   - deu
@@ -125,13 +125,13 @@ familiensache:
   session: chapter
   text: chapter
   title:
-    deu: "Familiensache. Dynastische Handlungsspielr\xE4ume in der Korrespondenz von\
+    de: "Familiensache. Dynastische Handlungsspielr\xE4ume in der Korrespondenz von\
       \ Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720)."
   turn: p
   utterance: s
 grazernuntiatur:
   description:
-    ita: ''
+    de: ''
   landingPageURI: https://grazer-nuntiatur.acdh.oeaw.ac.at
   languages:
   - ita
@@ -140,12 +140,12 @@ grazernuntiatur:
   session: chapter
   text: chapter
   title:
-    ita: "Grazer Nuntiatur: Korrespondenz (1580\u20131602)."
+    de: "Grazer Nuntiatur: Korrespondenz (1580\u20131602)."
   turn: p
   utterance: s
 gtrans:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://gtrans.acdh.oeaw.ac.at
   languages:
   - deu
@@ -154,13 +154,13 @@ gtrans:
   session: chapter
   text: chapter
   title:
-    deu: "Die gro\xDFe Transformation: Staat und kommunaler \xF6ffentlicher Dienst\
+    de: "Die gro\xDFe Transformation: Staat und kommunaler \xF6ffentlicher Dienst\
       \ in Wien (1918\u20131920)."
   turn: p
   utterance: s
 nuntiaturpiusxi:
   description:
-    ita: ''
+    de: ''
   landingPageURI: https://nuntiatur-pius-xi.acdh.oeaw.ac.at
   languages:
   - ita
@@ -169,12 +169,12 @@ nuntiaturpiusxi:
   session: chapter
   text: chapter
   title:
-    ita: "Nuntiatur Pius XI: Korrespondenz (1923\u20131936)"
+    de: "Nuntiatur Pius XI: Korrespondenz (1923\u20131936)"
   turn: p
   utterance: s
 schnitzlerbriefe:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://schnitzler-briefe.acdh.oeaw.ac.at
   languages:
   - deu
@@ -183,12 +183,12 @@ schnitzlerbriefe:
   session: chapter
   text: chapter
   title:
-    deu: "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888\u20131931)."
+    de: "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888\u20131931)."
   turn: p
   utterance: s
 schnitzlertagebuch:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://schnitzler-tagebuch.acdh.oeaw.ac.at
   languages:
   - deu
@@ -197,12 +197,12 @@ schnitzlertagebuch:
   session: chapter
   text: chapter
   title:
-    deu: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
+    de: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
   turn: p
   utterance: s
 tillichlectures:
   description:
-    eng: ''
+    en: ''
   landingPageURI: https://tillichcorrespondence.github.io/tillich-lectures-static
   languages:
   - eng
@@ -211,13 +211,12 @@ tillichlectures:
   session: chapter
   text: chapter
   title:
-    eng: A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard
-      1955-1956.
+    en: A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.
   turn: p
   utterance: s
 wmp1:
   description:
-    deu: ''
+    de: ''
   landingPageURI: https://wmp1.acdh.oeaw.ac.at
   languages:
   - deu
@@ -226,6 +225,6 @@ wmp1:
   session: chapter
   text: chapter
   title:
-    deu: Das erste Wiener Merkantilprotokoll.
+    de: Das erste Wiener Merkantilprotokoll.
   turn: p
   utterance: s

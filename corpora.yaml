@@ -5,7 +5,7 @@ abacus:
   languages:
   - deu
   paragraph: p
-  pid: ''
+  pid: https://acdh.oeaw.ac.at/abacus/
   session: chapter
   text: chapter
   title:
@@ -23,15 +23,15 @@ shawi:
   session: chapter
   text: chapter
   title:
-    en:  Shawi-type Arabic Dialects Corpus
+    en: Shawi-type Arabic Dialects Corpus
   turn: p
   utterance: s
 tunocent:
   pid: https://tunocent.acdh.oeaw.ac.at/
   title: 
-    en: Tunocent
+    en: Arabic Varieties of Northwestern and Central Tunisia
   description:
-    en: Tunocent corpora
+    en: ''
   landingPageURI: https://tunocent.acdh.oeaw.ac.at/
   languages:
   - ara
@@ -55,7 +55,7 @@ wibarab:
   turn: p
   utterance: s
 wiener-diarium:
-  pid: diariumPid
+  pid: https://digitarium.acdh.oeaw.ac.at/
   title:
     en: The Viennese Diary
     de: Das Wien[n]erische Diarium
@@ -70,116 +70,120 @@ wiener-diarium:
   turn: p
   text: doc
   session: doc
+# DSE-STATIC
 akademieprotokolle:
   description:
-    en: ''
+    deu: ''
   landingPageURI: https://akademieprotokolle.acdh.oeaw.ac.at
   languages:
   - deu
   paragraph: p
-  pid: https://fake.pid/1
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B5-6
   session: chapter
   text: chapter
   title:
-    en: akademieprotokolle
+    deu: "Sitzungsprotokolle der \xD6sterreichischen Akademie der Wissenschaften."
   turn: p
   utterance: s
 amp:
   description:
-    en: ''
+    eng: ''
   landingPageURI: https://csae8092.github.io/amp-app
   languages:
   - eng
   paragraph: p
-  pid: https://fake.pid/2
+  pid: https://csae8092.github.io/amp-app
   session: chapter
   text: chapter
   title:
-    en: amp
+    eng: 'Auden Musulin Papers: A Digital Edition of W. H. Auden''s Letters to Stella
+      Musulin.'
   turn: p
   utterance: s
 bvg:
   description:
-    en: ''
+    deu: ''
   landingPageURI: https://b-vg.acdh.oeaw.ac.at
   languages:
   - deu
   paragraph: p
-  pid: https://fake.pid/3
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B4-7
   session: chapter
   text: chapter
   title:
-    en: bvg
+    deu: Die Entstehung des Bundes-Verfassungsgesetzes 1920.
   turn: p
   utterance: s
 familiensache:
   description:
-    en: ''
-  landingPageURI: https://kaiserin-eleonora.oeaw.ac.at/
+    deu: ''
+  landingPageURI: https://kaiserin-eleonora.oeaw.ac.at
   languages:
   - deu
   paragraph: p
-  pid: https://fake.pid/9
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B8-3
   session: chapter
   text: chapter
   title:
-    en: familiensache
+    deu: "Familiensache. Dynastische Handlungsspielr\xE4ume in der Korrespondenz von\
+      \ Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720)."
   turn: p
   utterance: s
 grazernuntiatur:
   description:
-    en: ''
+    ita: ''
   landingPageURI: https://grazer-nuntiatur.acdh.oeaw.ac.at
   languages:
   - ita
   paragraph: p
-  pid: https://fake.pid/4
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B6-5
   session: chapter
   text: chapter
   title:
-    en: grazernuntiatur
+    ita: "Grazer Nuntiatur: Korrespondenz (1580\u20131602)."
   turn: p
   utterance: s
 gtrans:
   description:
-    en: ''
+    deu: ''
   landingPageURI: https://gtrans.acdh.oeaw.ac.at
   languages:
   - deu
   paragraph: p
-  pid: https://hdl.handle.net/21.11115/0000-000E-558C-5
+  pid: https://hdl.handle.net/21.11115/0000-0016-84BA-1
   session: chapter
   text: chapter
   title:
-    en: gtrans
+    deu: "Die gro\xDFe Transformation: Staat und kommunaler \xF6ffentlicher Dienst\
+      \ in Wien (1918\u20131920)."
   turn: p
   utterance: s
 nuntiaturpiusxi:
   description:
-    en: ''
+    ita: ''
   landingPageURI: https://nuntiatur-pius-xi.acdh.oeaw.ac.at
   languages:
   - ita
   paragraph: p
-  pid: https://fake.pid/5
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B7-4
   session: chapter
   text: chapter
   title:
-    en: nuntiaturpiusxi
+    ita: "Nuntiatur Pius XI: Korrespondenz (1923\u20131936)"
   turn: p
   utterance: s
 schnitzlerbriefe:
   description:
-    en: ''
+    deu: ''
   landingPageURI: https://schnitzler-briefe.acdh.oeaw.ac.at
   languages:
   - deu
   paragraph: p
-  pid: https://fake.pid/6
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B3-8
   session: chapter
   text: chapter
   title:
-    en: schnitzlerbriefe
+    deu: "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888\u20131931)."
   turn: p
   utterance: s
 schnitzlertagebuch:
@@ -198,30 +202,30 @@ schnitzlertagebuch:
   utterance: s
 tillichlectures:
   description:
-    en: ''
+    eng: ''
   landingPageURI: https://tillichcorrespondence.github.io/tillich-lectures-static
   languages:
   - eng
   paragraph: p
-  pid: https://fake.pid/7
+  pid: https://www.fake/pid.com
   session: chapter
   text: chapter
   title:
-    en: tillichlectures
+    eng: A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard
+      1955-1956.
   turn: p
   utterance: s
 wmp1:
   description:
-    en: ''
+    deu: ''
   landingPageURI: https://wmp1.acdh.oeaw.ac.at
   languages:
   - deu
   paragraph: p
-  pid: https://fake.pid/8
+  pid: https://hdl.handle.net/21.11115/0000-0016-84B9-2
   session: chapter
   text: chapter
   title:
-    en: wmp1
+    deu: Das erste Wiener Merkantilprotokoll.
   turn: p
   utterance: s
-

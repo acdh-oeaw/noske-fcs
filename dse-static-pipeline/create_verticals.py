@@ -185,15 +185,18 @@ def create_config(corpora: dict, output_path: str, cfg: dict) -> None:
         f.write(cfg['corporaConfig'])
 
 def create_mquery_sru_config(corpora: dict, output_path: str, cfg: dict) -> None:
-    lang = corpora['lang'][0:2]
     with open(output_path, 'w') as f:
+        lang = corpora['lang'][0:2]
+        # mquery-sru requires an English title to be present
+        title = {'en': corpora['title']}
+        title[lang] = corpora['title']
         data = {
             corpora['id']: {
                 'pid': corpora['pid'],
-                'title': {lang: corpora['title']},
-                'description': {lang: ''},
+                'title': title,
+                'description': {'en': ''},
                 'landingPageURI': corpora['landingPage'],
-                'languages': [lang],
+                'languages': [corpora['lang']],
                 'utterance': 's',
                 'paragraph': 'p',
                 'turn': 'p',

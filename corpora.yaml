@@ -1,6 +1,6 @@
 abacus:
   description:
-    de: ''
+    deu: ''
   landingPageURI: https://acdh.oeaw.ac.at/abacus/
   languages:
   - deu
@@ -73,7 +73,7 @@ wiener-diarium:
 # DSE-STATIC
 akademieprotokolle:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://akademieprotokolle.acdh.oeaw.ac.at
   languages:
   - deu
@@ -83,6 +83,7 @@ akademieprotokolle:
   text: chapter
   title:
     de: "Sitzungsprotokolle der \xD6sterreichischen Akademie der Wissenschaften."
+    en: "Sitzungsprotokolle der \xD6sterreichischen Akademie der Wissenschaften."
   turn: p
   utterance: s
 amp:
@@ -92,7 +93,7 @@ amp:
   languages:
   - eng
   paragraph: p
-  pid: https://csae8092.github.io/amp-app
+  pid: https://www.fake/pid.com
   session: chapter
   text: chapter
   title:
@@ -102,7 +103,7 @@ amp:
   utterance: s
 bvg:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://b-vg.acdh.oeaw.ac.at
   languages:
   - deu
@@ -112,11 +113,12 @@ bvg:
   text: chapter
   title:
     de: Die Entstehung des Bundes-Verfassungsgesetzes 1920.
+    en: Die Entstehung des Bundes-Verfassungsgesetzes 1920.
   turn: p
   utterance: s
 familiensache:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://kaiserin-eleonora.oeaw.ac.at
   languages:
   - deu
@@ -127,11 +129,13 @@ familiensache:
   title:
     de: "Familiensache. Dynastische Handlungsspielr\xE4ume in der Korrespondenz von\
       \ Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720)."
+    en: "Familiensache. Dynastische Handlungsspielr\xE4ume in der Korrespondenz von\
+      \ Kaiserin Eleonora Magdalena von Pfalz-Neuburg (1655-1720)."
   turn: p
   utterance: s
 grazernuntiatur:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://grazer-nuntiatur.acdh.oeaw.ac.at
   languages:
   - ita
@@ -140,12 +144,13 @@ grazernuntiatur:
   session: chapter
   text: chapter
   title:
-    de: "Grazer Nuntiatur: Korrespondenz (1580\u20131602)."
+    en: "Grazer Nuntiatur: Korrespondenz (1580\u20131602)."
+    it: "Grazer Nuntiatur: Korrespondenz (1580\u20131602)."
   turn: p
   utterance: s
 gtrans:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://gtrans.acdh.oeaw.ac.at
   languages:
   - deu
@@ -156,11 +161,13 @@ gtrans:
   title:
     de: "Die gro\xDFe Transformation: Staat und kommunaler \xF6ffentlicher Dienst\
       \ in Wien (1918\u20131920)."
+    en: "Die gro\xDFe Transformation: Staat und kommunaler \xF6ffentlicher Dienst\
+      \ in Wien (1918\u20131920)."
   turn: p
   utterance: s
 nuntiaturpiusxi:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://nuntiatur-pius-xi.acdh.oeaw.ac.at
   languages:
   - ita
@@ -169,12 +176,13 @@ nuntiaturpiusxi:
   session: chapter
   text: chapter
   title:
-    de: "Nuntiatur Pius XI: Korrespondenz (1923\u20131936)"
+    en: "Nuntiatur Pius XI: Korrespondenz (1923\u20131936)"
+    it: "Nuntiatur Pius XI: Korrespondenz (1923\u20131936)"
   turn: p
   utterance: s
 schnitzlerbriefe:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://schnitzler-briefe.acdh.oeaw.ac.at
   languages:
   - deu
@@ -184,11 +192,12 @@ schnitzlerbriefe:
   text: chapter
   title:
     de: "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888\u20131931)."
+    en: "Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren (1888\u20131931)."
   turn: p
   utterance: s
 schnitzlertagebuch:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://schnitzler-tagebuch.acdh.oeaw.ac.at
   languages:
   - deu
@@ -198,6 +207,7 @@ schnitzlertagebuch:
   text: chapter
   title:
     de: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
+    en: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
   turn: p
   utterance: s
 tillichlectures:
@@ -211,12 +221,13 @@ tillichlectures:
   session: chapter
   text: chapter
   title:
-    en: A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard 1955-1956.
+    en: A digital edition of Paul Tillich's Lecture 'Religion and Culture', Harvard
+      1955-1956.
   turn: p
   utterance: s
 wmp1:
   description:
-    de: ''
+    en: ''
   landingPageURI: https://wmp1.acdh.oeaw.ac.at
   languages:
   - deu
@@ -226,5 +237,7 @@ wmp1:
   text: chapter
   title:
     de: Das erste Wiener Merkantilprotokoll.
+    en: Das erste Wiener Merkantilprotokoll.
   turn: p
   utterance: s
+

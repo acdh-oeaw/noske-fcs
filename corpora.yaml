@@ -93,7 +93,7 @@ amp:
   languages:
   - eng
   paragraph: p
-  pid: https://www.fake/pid.com
+  pid: https://csae8092.github.io/amp-app
   session: chapter
   text: chapter
   title:
@@ -217,7 +217,7 @@ tillichlectures:
   languages:
   - eng
   paragraph: p
-  pid: https://www.fake/pid.com
+  pid: https://tillichcorrespondence.github.io/tillich-lectures-static
   session: chapter
   text: chapter
   title:

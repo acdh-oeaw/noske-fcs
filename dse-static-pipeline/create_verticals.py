@@ -102,6 +102,7 @@ def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) ->
     response = requests.get(tei_url)
     t2 = perf_counter()
 
+    response.encoding = 'utf-8'
     tei_content = response.text
     tei_content = tei_content.replace('<lb/>', ' ')
            
@@ -151,6 +152,7 @@ def create_vertical(corpora: dict, output_path: str, cfg: dict):
         vertical.write(f'<doc LandingPageURI="{corpora["landingPage"]}">\n')
         
         time = {'download': 0.0, 'nlp': 0.0, 'total': perf_counter(), 'tokens': 0}
+
         N = len(corpora['tei'])
         n = 1
         for tei_url, title in corpora['tei'].items():

@@ -116,6 +116,21 @@ bvg:
     en: Die Entstehung des Bundes-Verfassungsgesetzes 1920.
   turn: p
   utterance: s
+dhdabstracts:
+  description:
+    en: ''
+  landingPageURI: https://acdh-oeaw.github.io/dhd-abstracts-static
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0016-8532-9
+  session: chapter
+  text: chapter
+  title:
+    de: DHd Abstracts
+    en: DHd Abstracts
+  turn: p
+  utterance: s
 familiensache:
   description:
     en: ''
@@ -208,6 +223,21 @@ schnitzlertagebuch:
   title:
     de: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
     en: "Arthur Schnitzler: Tagebuch (1879\u20131931)."
+  turn: p
+  utterance: s
+staribacher:
+  description:
+    en: ''
+  landingPageURI: https://staribacher.acdh.oeaw.ac.at
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0016-9446-2
+  session: chapter
+  text: chapter
+  title:
+    de: "Josef Staribacher Tageb\xFCcher (1970\u20131983)"
+    en: "Josef Staribacher Tageb\xFCcher (1970\u20131983)"
   turn: p
   utterance: s
 tillichlectures:

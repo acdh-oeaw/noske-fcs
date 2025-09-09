@@ -24,7 +24,7 @@ jobs:
         source env/bin/activate
         pip3 install -U -r requirements.txt
         PARAM="-s"
-        if [ -n "${{ inputs.edition }}"] ; then 
+        if [ -n "${{ inputs.edition }}" ] ; then 
           PARAM="-e ${{ inputs.edition }}"
         fi
         python3 create_verticals.py -c config_sample.yaml $PARAM

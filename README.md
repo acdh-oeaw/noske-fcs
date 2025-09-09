@@ -13,7 +13,7 @@ It uses github actions to run a following workflow:
   upon its container startup.
 * Build the docker image and push it to the docker hub.
 
-The deployment is available under [[https://noske-fcs.acdh-ch-dev.oeaw.ac.at/](https://fcs.acdh.oeaw.ac.at/)](https://fcs.acdh.oeaw.ac.at/), e.g. 
+The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acdh.oeaw.ac.at/) e.g. 
 
 * [https://fcs.acdh.oeaw.ac.at/?operation=explain&version=2.0&x-fcs-endpoint-description=true](https://fcs.acdh.oeaw.ac.at/?operation=explain&version=2.0&x-fcs-endpoint-description=true)
 * [https://fcs.acdh.oeaw.ac.at/?query=Vater](https://fcs.acdh.oeaw.ac.at/?query=Vater)

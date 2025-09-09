@@ -1,6 +1,11 @@
 name: dse-static
 on:
-  workflow_dispatch: ~
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: digital edition name
+        required: false
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +23,11 @@ jobs:
         python3 -m venv env
         source env/bin/activate
         pip3 install -U -r requirements.txt
-        python3 create_verticals.py -c config_sample.yaml -s
+        PARAM="-s"
+        if [ -n "${{ inputs.edition }}"] ; then 
+          PARAM="-e ${{ inputs.edition }}"
+        fi
+        python3 create_verticals.py -c config_sample.yaml $PARAM
     - name: compile corpora
       run: |
         cd dse-static-pipeline

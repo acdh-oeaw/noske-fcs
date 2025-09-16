@@ -25,5 +25,11 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: docker push
       run: docker push acdhch/noske-fcs
+    - name: redeploy
+      run: |
+        touch kubectl.cfg && chmod 600 kubectl.cfg && echo ${{ secrets.KUBE_CONFIG }} | base64 --decode >> kubectl.cfg
+        kubectl --kubeconfig=kubectl.cfg --namespace noske-fcs rollout restart deployment/noske-fcs-redis
+        kubectl --kubeconfig=kubectl.cfg --namespace noske-fcs rollout restart deployment/noske-fcs-server
+        kubectl --kubeconfig=kubectl.cfg --namespace noske-fcs rollout restart deployment/noske-fcs-worker
 
 

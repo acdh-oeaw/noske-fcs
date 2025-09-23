@@ -5,9 +5,9 @@
   Then commit and push.
 * Extract original verticals by running the `extract_vertical.sh` script:
   ```bash
-  echo sources.csv | extract_vertical.sh
+  echo sources.csv | ./extract_vertical.sh
   # or to process only a single one
-  grep corporaName sources.csv | extract_vertical.sh
+  grep corporaName sources.csv | ./extract_vertical.sh
   ```
 * Reprocess the vertical by running the `reprocess_vertical.py` script:
   * Install Python dependencies

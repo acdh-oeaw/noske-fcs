@@ -1,14 +1,16 @@
 from argparse import ArgumentParser
 from create_verticals import create_config, create_mquery_sru_config, run_spacy, run_udp
-from csv import reader
+from csv import reader, field_size_limit
 from os import makedirs
 from os.path import basename, join
 from re import sub
+from sys import maxsize
 from yaml import safe_load
-from time import perf_counter
+from time import perf_counter, sleep
 
 GLUE = '<g/>'
 PAR_SEP = 'PaRaSeP'
+field_size_limit(maxsize)
 
 
 def reprocess(input, output, lang, cfg) -> bool:

@@ -1,3 +1,18 @@
+bundesverfassung-oesterreich:
+  description:
+    en: The aim of the GH-Project for „Die Entstehung des Bundes-Verfassungsgesetzes 1920“ is to provide documents, commentaries and data in general concerning the genesis of the Austrian Bundes-Verfassungsgesetzes in the 1920s.
+  landingPageURI: https://github.com/bundesverfassung-oesterreich
+  languages:
+  - deu
+  paragraph: p
+  pid: https://github.com/bundesverfassung-oesterreich
+  session: chapter
+  text: chapter
+  title:
+    de: bundesverfassung-oesterreich
+    en: bundesverfassung-oesterreich
+  turn: p
+  utterance: s
 abacus:
   description:
     en: ''

@@ -112,6 +112,8 @@ def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) ->
     tei_content = tei_content.replace("<lb/>", " ")
     if "schnitzler-briefe" in tei_url:
         tei_content = tei_content.replace('<c rendition="#langesS">s</c>', "s")
+        tei_content = tei_content.replace('<c rendition="gemination-m">mm</c>', "mm")
+        tei_content = tei_content.replace('<c rendition="gemination-n">nn</c>', "nn")
 
     tree = ET.fromstring(tei_content.encode("utf-8"))
     nsmap = {"tei": "http://www.tei-c.org/ns/1.0"}

@@ -288,7 +288,7 @@ wmp1:
 jad:
   description:
     en: The project explores the medieval reception and interpretation of the Roman conquest of Jerusalem in 70 AD, examining its presence in chronicles, anti-Jewish treatises, sermon collections, and biblical commentaries.
-  landingPageURI: https://wmp1.acdh.oeaw.ac.at
+  landingPageURI: https://hdl.handle.net/21.11115/0000-0017-DC59-C
   languages:
   - deu
   paragraph: p
@@ -298,5 +298,21 @@ jad:
   title:
     de: Mittelalterliche Rezeption der römischen Eroberung Jerusalems
     en: Medieval Reception of the Roman Conquest of Jerusalem
+  turn: p
+  utterance: s
+legalkraus:
+  description:
+    de: Digitale Edition der Rechtsakten der Kanzlei Oskar Samek.
+    en: Digital edition of the legal documents of the Oskar Samek law firm.
+  landingPageURI: https://karl-kraus.github.io/legalkraus-static/
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0017-DC5A-B
+  session: chapter
+  text: chapter
+  title:
+    de: Karl Kraus - Rechtsakten der Kanzlei Oskar Samek. Wissenschaftliche Edition
+    en: Karl Kraus - Legal documents from the law firm of Oskar Samek. Academic edition
   turn: p
   utterance: s

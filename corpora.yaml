@@ -316,3 +316,19 @@ legalkraus:
     en: Karl Kraus - Legal documents from the law firm of Oskar Samek. Academic edition
   turn: p
   utterance: s
+wiener-rundschau:
+  description:
+    de: Digitale Edition der Wiener Rundschau (1910–1954)
+    en: Digital edition of Wiener Rundschau (1910–1954)
+  landingPageURI: https://acdh-oeaw.github.io/wiener-rundschau-static/
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0018-07FF-0
+  session: chapter
+  text: chapter
+  title:
+    de: Digitale Edition der Wiener Rundschau (1910–1954)
+    en: Digital edition of Wiener Rundschau (1910–1954)
+  turn: p
+  utterance: s

@@ -60,3 +60,11 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 * Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora
   (you can find them in the `data/*.yml` files), commit and push.
 * Run the [build action](https://github.com/acdh-oeaw/noske-fcs/actions/workflows/build.yml) or make a new release.
+
+To populate the changes to the https://github.com/acdh-oeaw/corpus-search:
+
+* Run the https://github.com/acdh-oeaw/corpus-search/actions/workflows/starter.yaml github action.
+* While the action updates the image tag in the Rancher, automatic redeployment quite often doesn't work
+  so when the github action is finished it's safe to redeploy the 
+  [corpus-search-prod](https://rancher.acdh-dev.oeaw.ac.at/dashboard/c/c-m-6hwgqq2g/explorer/apps.deployment/noske-fcs/corpus-search-prod)
+  workflow by hand.

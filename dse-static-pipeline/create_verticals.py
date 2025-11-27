@@ -31,7 +31,7 @@ def get_paragraph(node):
     return node
 
 
-def run_udp(text: str, lang: str, cfg: dict) -> str:
+def run_udp(text: str, lang: str, cfg: dict, suffix: str="") -> str:
     """Process text through UDPipe API."""
     data = {
         "data": text,
@@ -58,7 +58,7 @@ def run_udp(text: str, lang: str, cfg: dict) -> str:
         if item["text"] == PAR_SEP:
             vertical += "</s>\n</p>\n<p>\n<s>\n"
         else:
-            vertical += f"{item['text']}\t{item['lemma']}\t{item['upos']}\n"
+            vertical += f"{item['text']}\t{item['lemma']}\t{item['upos']}{suffix}\n"
             if "SpaceAfter=No" in parts[9]:
                 vertical += "<g/>\n"
 
@@ -66,7 +66,7 @@ def run_udp(text: str, lang: str, cfg: dict) -> str:
     return vertical
 
 
-def run_spacy(text: str, lang: str, cfg: dict) -> str:
+def run_spacy(text: str, lang: str, cfg: dict, suffix: str="") -> str:
     import spacy
 
     nlp = spacy.load(cfg["models"][lang])
@@ -95,7 +95,7 @@ def run_spacy(text: str, lang: str, cfg: dict) -> str:
         if token.text == PAR_SEP:
             vertical += "</s>\n</p>\n<p>\n<s>\n"
         else:
-            vertical += f"{token.text}\t{token.lemma_ if not token.is_punct else token.text}\t{token.pos_}\n"
+            vertical += f"{token.text}\t{token.lemma_ if not token.is_punct else token.text}\t{token.pos_}{suffix}\n"
 
     vertical += "</s>\n</p>\n"
     return vertical
@@ -137,14 +137,16 @@ def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) ->
         text += part + " "
 
     t3 = perf_counter()
+    suffix = f'\t{html_url}'
     if cfg["backend"] == "udppipe":
-        processed = run_udp(text.strip(), corpora["lang"], cfg["udppipe"])
+        processed = run_udp(text.strip(), corpora["lang"], cfg["udppipe"], suffix)
     else:
-        processed = run_spacy(text.strip(), corpora["lang"], cfg["spacy"])
+        processed = run_spacy(text.strip(), corpora["lang"], cfg["spacy"], suffix)
     t4 = perf_counter()
+    processed = processed.replace("<s>\n</s>\n", "").replace("<p>\n</p>\n", "")
     tokens = processed.count("\n")
 
-    vertical.write(processed.replace("<s>\n</s>\n", "").replace("<p>\n</p>\n", ""))
+    vertical.write(processed)
     vertical.write("</chapter>\n")
 
     t5 = perf_counter()

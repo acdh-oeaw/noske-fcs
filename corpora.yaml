@@ -332,3 +332,19 @@ wiener-rundschau:
     en: Digital edition of Wiener Rundschau (1910–1954)
   turn: p
   utterance: s
+baedeker:
+  description:
+    de: Eine digitale Edition von fünf Bänden der Baedeker Reiseführer aus den Jahren 1875, 1893, 1905, 1909 und 1914.
+    en: A digital edition of five volumes of Baedeker travel guides from 1875, 1893, 1905, 1909, and 1914.
+  landingPageURI: https://acdh-oeaw.github.io/bd-static/
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0018-085D-6
+  session: chapter
+  text: chapter
+  title:
+    de: Baedeker Digital (1875–1914)
+    en: Baedeker Digital (1875–1914)
+  turn: p
+  utterance: s

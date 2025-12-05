@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: clone and config mquery-sru
       run: |
         git clone https://github.com/czcorpus/mquery-sru.git

@@ -348,3 +348,19 @@ baedeker:
     en: Baedeker Digital (1875–1914)
   turn: p
   utterance: s
+dse-static:
+  description:
+    de: Eine Demo Applikation des dse-static-cookiecutter.
+    en: A demo application of the dse-static-cookiecutter.
+  landingPageURI: https://acdh-oeaw.github.io/dse-static-cookiecutter/
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0018-085E-5
+  session: chapter
+  text: chapter
+  title:
+    de: Demo Applikation des dse-static-cookiecutter
+    en: Demo application of the dse-static-cookiecutter
+  turn: p
+  utterance: s

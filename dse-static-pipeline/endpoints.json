@@ -1,0 +1,14 @@
+{
+  "jhp": {
+    "title": "Joseph von Hammer-Purgstall",
+    "default_lang": "deu",
+    "pid": "https://hdl.handle.net/21.11115/0000-0018-0860-1",
+    "fulltext_xpath": "//tei:body/.//text()[not(ancestor::tei:note or ancestor::tei:abbr or ancestor::tei:am or ancestor::tei:del)]",
+    "landingpage": "https://gams.uni-graz.at/context:hpe",
+    "docs": {
+      "https://gams.uni-graz.at/o:hpe.letter.2733/TEI_SOURCE": "Joseph von Hammer-Purgstall an Jean Pierre Abel-Remusat, Wien, 1822-06-03",
+      "https://gams.uni-graz.at/o:hpe.letter.2734/TEI_SOURCE": "Friedrich Wilken an Joseph von Hammer-Purgstall, Berlin, 1822-06-04",
+      "https://gams.uni-graz.at/o:hpe.letter.2735/TEI_SOURCE": "Karl August Böttiger an Joseph von Hammer-Purgstall, Dresden, 1822-06-07"
+    }
+  }
+}

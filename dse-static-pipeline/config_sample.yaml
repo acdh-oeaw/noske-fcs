@@ -1,4 +1,5 @@
 src: https://dse-static-oai-pmh.acdh-dev.oeaw.ac.at/
+staticSrc: endpoints.json
 maintainer: mzoltak@oeaw.ac.at
 outputDir: data
 # verticals tags mapping schema

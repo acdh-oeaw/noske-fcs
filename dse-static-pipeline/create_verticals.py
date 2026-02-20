@@ -1,3 +1,4 @@
+import json
 import os
 from argparse import ArgumentParser
 from re import match, sub
@@ -24,14 +25,14 @@ def get_paragraph(node):
     """Get parent paragraph element."""
     while (
         node is not None
-        and node.tag != "{http://www.tei-c.org/ns/1.0}p"
-        and node.tag != "{http://www.tei-c.org/ns/1.0}body"
+        and node.tag != "{http://www.tei-c.org/ns/1.0}p"  # noqa
+        and node.tag != "{http://www.tei-c.org/ns/1.0}body"  # noqa
     ):
         node = node.getparent()
     return node
 
 
-def run_udp(text: str, lang: str, cfg: dict, suffix: str="") -> str:
+def run_udp(text: str, lang: str, cfg: dict, suffix: str = "") -> str:
     """Process text through UDPipe API."""
     data = {
         "data": text,
@@ -66,7 +67,7 @@ def run_udp(text: str, lang: str, cfg: dict, suffix: str="") -> str:
     return vertical
 
 
-def run_spacy(text: str, lang: str, cfg: dict, suffix: str="") -> str:
+def run_spacy(text: str, lang: str, cfg: dict, suffix: str = "") -> str:
     import spacy
 
     nlp = spacy.load(cfg["models"][lang])
@@ -137,7 +138,7 @@ def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) ->
         text += part + " "
 
     t3 = perf_counter()
-    suffix = f'\t{html_url}'
+    suffix = f"\t{html_url}"
     if cfg["backend"] == "udppipe":
         processed = run_udp(text.strip(), corpora["lang"], cfg["udppipe"], suffix)
     else:
@@ -257,6 +258,9 @@ def main():
         cfg = safe_load(f)
     response = requests.get(cfg["src"])
     src_data = response.json()["endpoints"]
+    if "staticSrc" in cfg:
+        with open(cfg["staticSrc"], "r", encoding="utf-8") as fp:
+            src_data.update(json.load(fp))
 
     if args.l:
         for key in src_data.keys():
@@ -270,7 +274,11 @@ def main():
             continue
 
         key = sub("[^a-zA-Z0-9]", "", key)
-        teis = get_tei_locations(val["oai"])
+        try:
+            teis = val["docs"]
+        except KeyError:
+            teis = get_tei_locations(val["oai"])
+
         path_config = os.path.join(cfg["outputDir"], key)
         path_vertical = f"{path_config}.vrt"
         corpora = {

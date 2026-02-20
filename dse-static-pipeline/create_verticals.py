@@ -258,10 +258,9 @@ def main():
         cfg = safe_load(f)
     response = requests.get(cfg["src"])
     src_data = response.json()["endpoints"]
-    with open("endpoints.json", "r", encoding="utf-8") as fp:
-        more_src_data = json.load(fp)
-        for key, value in more_src_data.items():
-            src_data[key] = value
+    if "staticSrc" in cfg:
+        with open(cfg["staticSrc"], "r", encoding="utf-8") as fp:
+            src_data.update(json.load(fp))
 
     if args.l:
         for key in src_data.keys():
@@ -279,6 +278,7 @@ def main():
             teis = val["docs"]
         except KeyError:
             teis = get_tei_locations(val["oai"])
+
         path_config = os.path.join(cfg["outputDir"], key)
         path_vertical = f"{path_config}.vrt"
         corpora = {

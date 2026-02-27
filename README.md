@@ -50,3 +50,15 @@ The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acd
 ```
 compilecorp /var/lib/manatee/registry/{corporaName}
 ```
+
+## ACDH corpus-search noske instance
+
+ACDH all-corpora noske instance is using the docker image build by this repo.
+
+To make it pick it up:
+
+* Update the https://github.com/acdh-oeaw/corpus-search/blob/main/Dockerfile#L5 (the `CORPLIST` env var)
+* Make sure https://github.com/acdh-oeaw/corpus-search/actions/workflows/starter.yaml is being run.
+  If not (e.g. because no changes to the `CORPLIST` env var were made), then run it manually.
+* Redeploy the [noske-fcs/corpus-search-prod](https://rancher.acdh-dev.oeaw.ac.at/dashboard/c/c-m-6hwgqq2g/explorer/apps.deployment/noske-fcs/corpus-search-prod#pods)
+  workflow (unfortunatelly when it's done automatically from the Github Workflow, the new image is not pulled).

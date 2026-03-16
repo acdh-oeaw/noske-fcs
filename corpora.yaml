@@ -364,3 +364,19 @@ dsestatic:
     en: Demo application of the dse-static-cookiecutter
   turn: p
   utterance: s
+mrp:
+  description:
+    de: Die Ministerratsprotokolle 1848–1918.
+    en: Minutes of the Council of Ministers of Austria and the Austro-Hungarian Monarchy 1848–1918.
+  landingPageURI: https://mrp.oeaw.ac.at/
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-0018-0861-0
+  session: chapter
+  text: chapter
+  title:
+    de: Die Ministerratsprotokolle 1848–1918
+    en: Minutes of the Council of Ministers of Austria and the Austro-Hungarian Monarchy 1848–1918
+  turn: p
+  utterance: s

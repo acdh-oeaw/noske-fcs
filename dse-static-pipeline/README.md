@@ -11,7 +11,7 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 
 ### As a github action
 
-* Go to https://github.com/acdh-oeaw/noske-fcs/actions/workflows/dse-static.yml and run the workflow.
+* Go to <https://github.com/acdh-oeaw/noske-fcs/actions/workflows/dse-static.yml> and run the workflow.
   It will read the data from the existing `acdhch/noske-fcs-dse-static` image, run the `create_verticals.py`, `compile_corp.sh` and `build_image.sh` and push the resulting image to the registry.
 * Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora
   (you can find them in the `data/*.yml` files), commit and push.
@@ -21,50 +21,54 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 
 * Clone this repo and go into directory with this file
 * Install Python dependencies
+
   ```bash
   python3 -m venv env
   source env/bin/activate
   pip3 install -U -r requirements.txt
   ```
-  * If you want to use the [spacy](https://spacy.io/) (and not the [udppipe](https://lindat.mff.cuni.cz/services/udpipe/)),
-    you need to install it along with language models of your choice.
-    Please take a look at the https://spacy.io/usage#quickstart for details
-    but it will go down to something like (in already activated python virtual environment):
-    ```bash
-    pip3 install -U spacy
-    python -m spacy download LangModuleOfYourChoice
-    ```
+
 * Create the config file from a template:
+
   ```bash
   cp config_sample.yaml config.yaml
   ````
+
   and adjust the `config.yaml` contents
 * Optionally extract already existing data
+
   ```bash
   ./extract_existing.sh
   ```
+
 * Run with
+
   ```bash
   python3 create_verticals.py
   ```
+
   * To see all command-line options run
+
     ```bash
     python3 create_verticals.py --help
     ```
+
 * Then run
+
   ```bash
   ./compile_corp.sh
   ./build_image.sh
   docker push acdhch/noske-fcs-dse-static
   ```
+
 * Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora
   (you can find them in the `data/*.yml` files), commit and push.
 * Run the [build action](https://github.com/acdh-oeaw/noske-fcs/actions/workflows/build.yml) or make a new release.
 
-To populate the changes to the https://github.com/acdh-oeaw/corpus-search:
+To populate the changes to the <https://github.com/acdh-oeaw/corpus-search>:
 
-* Run the https://github.com/acdh-oeaw/corpus-search/actions/workflows/starter.yaml github action.
+* Run the <https://github.com/acdh-oeaw/corpus-search/actions/workflows/starter.yaml> github action.
 * While the action updates the image tag in the Rancher, automatic redeployment quite often doesn't work
-  so when the github action is finished it's safe to redeploy the 
+  so when the github action is finished it's safe to redeploy the
   [corpus-search-prod](https://rancher.acdh-dev.oeaw.ac.at/dashboard/c/c-m-6hwgqq2g/explorer/apps.deployment/noske-fcs/corpus-search-prod)
   workflow by hand.

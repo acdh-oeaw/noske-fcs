@@ -1,7 +1,7 @@
 import json
 import os
 from argparse import ArgumentParser
-from re import match, sub
+from re import sub
 from time import perf_counter, sleep
 
 import requests
@@ -67,41 +67,6 @@ def run_udp(text: str, lang: str, cfg: dict, suffix: str = "") -> str:
     return vertical
 
 
-def run_spacy(text: str, lang: str, cfg: dict, suffix: str = "") -> str:
-    import spacy
-
-    nlp = spacy.load(cfg["models"][lang])
-    doc = nlp(text)
-    assert doc.has_annotation("SENT_START")
-
-    vertical = "<p>\n<s>\n"
-    sent = None
-    for token in doc:
-        if token.is_space:
-            continue
-
-        # end of sentence recognition
-        sent = sent or token.sent
-        if sent != token.sent:
-            vertical += "</s>\n<s>\n"
-        sent = token.sent
-
-        # check if the glue element is needed
-        if not match("\\s", text) and token.is_punct:
-            vertical += "<g/>\n"
-        text = sub("^\\s*", "", text)
-        text = text[len(token.text) :]  # noqa E203
-
-        # token itself
-        if token.text == PAR_SEP:
-            vertical += "</s>\n</p>\n<p>\n<s>\n"
-        else:
-            vertical += f"{token.text}\t{token.lemma_ if not token.is_punct else token.text}\t{token.pos_}{suffix}\n"
-
-    vertical += "</s>\n</p>\n"
-    return vertical
-
-
 def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) -> bool:
     html_url = tei_url.replace(".xml", ".html")
     t1 = perf_counter()
@@ -139,10 +104,7 @@ def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) ->
 
     t3 = perf_counter()
     suffix = f"\t{html_url}"
-    if cfg["backend"] == "udppipe":
-        processed = run_udp(text.strip(), corpora["lang"], cfg["udppipe"], suffix)
-    else:
-        processed = run_spacy(text.strip(), corpora["lang"], cfg["spacy"], suffix)
+    processed = run_udp(text.strip(), corpora["lang"], cfg["udppipe"], suffix)
     t4 = perf_counter()
     processed = processed.replace("<s>\n</s>\n", "").replace("<p>\n</p>\n", "")
     tokens = processed.count("\n")

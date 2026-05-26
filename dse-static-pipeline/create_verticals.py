@@ -17,7 +17,10 @@ def get_tei_locations(oai_base: str) -> dict:
     nsmap = {"dc": "http://purl.org/dc/elements/1.1/"}
     ids = tree.xpath("//dc:identifier/text()", namespaces=nsmap)
     titles = tree.xpath("//dc:title/text()", namespaces=nsmap)
-    return dict(zip(ids, titles))
+    langs = tree.xpath("//dc:language/text()", namespaces=nsmap)
+    result = {x: [x, y, z] for x, y, z in zip(ids, titles, langs)}
+    # print(result)
+    return result
 
 
 def get_paragraph(node):
@@ -66,7 +69,9 @@ def run_udp(text: str, lang: str, cfg: dict, suffix: str = "") -> str:
     return vertical
 
 
-def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) -> bool:
+def process_tei(
+    tei_url: str, title: str, lang: str, vertical, corpora: dict, cfg: dict, time: dict
+) -> bool:
     html_url = tei_url.replace(".xml", ".html")
     t1 = perf_counter()
     response = requests.get(tei_url)
@@ -83,7 +88,9 @@ def process_tei(tei_url: str, vertical, corpora: dict, cfg: dict, time: dict) ->
     tree = ET.fromstring(tei_content.encode("utf-8"))
     nsmap = {"tei": "http://www.tei-c.org/ns/1.0"}
 
-    vertical.write(f'<chapter ID="{corpora["id"]}" LandingPageURI="{html_url}">\n')
+    vertical.write(
+        f'<chapter ID="{corpora["id"]}" LandingPageURI="{html_url} LanguageCode="{lang}" DocTitle="{title}>\n'
+    )
 
     last_p = None
     text = ""
@@ -131,11 +138,13 @@ def create_vertical(corpora: dict, output_path: str, cfg: dict):
 
         N = len(corpora["tei"])
         n = 1
-        for tei_url, title in corpora["tei"].items():
+        print(corpora["tei"])
+        for x in corpora["tei"].values():
+            tei_url, title, lang = x
             print(f"    {tei_url} ({n}/{N} {round(100 * n / N, 1)}%)")
             for i in range(10):
                 try:
-                    if process_tei(tei_url, vertical, corpora, cfg, time):
+                    if process_tei(tei_url, title, lang, vertical, corpora, cfg, time):
                         break
                 except Exception as e:
                     print(f"{e}")
@@ -232,11 +241,7 @@ def main():
             continue
 
         key = sub("[^a-zA-Z0-9]", "", key)
-        try:
-            teis = val["docs"]
-        except KeyError:
-            teis = get_tei_locations(val["oai"])
-
+        teis = get_tei_locations(val["oai"])
         path_config = os.path.join(cfg["outputDir"], key)
         path_vertical = f"{path_config}.vrt"
         corpora = {

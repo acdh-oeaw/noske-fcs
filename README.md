@@ -36,6 +36,12 @@ The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acd
 * See the README in the `dse-static-pipeline` directory.
 * Once you built the docker image, continue as described in the previous chapter.
 
+## TL;DR
+
+```shell
+uv run dse-static-pipeline/create_verticals.py -c=dse-static-pipeline/config.yaml -e=dse-static
+```
+
 ## Links
 
 * [mquery-sru](https://github.com/czcorpus/mquery-sru)

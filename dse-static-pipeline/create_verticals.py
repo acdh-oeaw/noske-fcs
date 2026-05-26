@@ -1,4 +1,3 @@
-import json
 import os
 from argparse import ArgumentParser
 from re import sub
@@ -220,9 +219,6 @@ def main():
         cfg = safe_load(f)
     response = requests.get(cfg["src"])
     src_data = response.json()["endpoints"]
-    if "staticSrc" in cfg:
-        with open(cfg["staticSrc"], "r", encoding="utf-8") as fp:
-            src_data.update(json.load(fp))
 
     if args.l:
         for key in src_data.keys():

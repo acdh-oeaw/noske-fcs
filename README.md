@@ -8,12 +8,12 @@ It uses github actions to run a following workflow:
 * Adjust its Dockerfile so it includes corpora from existing docker images defined in the `preDockerfile`
   and copies data from them according to the `postDockerfile`.
 * Include into the build config the `confgen.py` script and the `corpora.yml` file which are used to dynamically
-  build the `corpora-resources` section of the 
+  build the `corpora-resources` section of the
   [mquery-sru's config file](https://github.com/czcorpus/mquery-sru/blob/main/config-reference.md)
   upon its container startup.
 * Build the docker image and push it to the docker hub.
 
-The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acdh.oeaw.ac.at/) e.g. 
+The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acdh.oeaw.ac.at/) e.g.
 
 * [https://fcs.acdh.oeaw.ac.at/?operation=explain&version=2.0&x-fcs-endpoint-description=true](https://fcs.acdh.oeaw.ac.at/?operation=explain&version=2.0&x-fcs-endpoint-description=true)
 * [https://fcs.acdh.oeaw.ac.at/?query=Vater](https://fcs.acdh.oeaw.ac.at/?query=Vater)
@@ -47,7 +47,7 @@ The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acd
 
 ## Compiling corpora from a vertical
 
-```
+```shell
 compilecorp /var/lib/manatee/registry/{corporaName}
 ```
 
@@ -57,8 +57,8 @@ ACDH all-corpora noske instance is using the docker image build by this repo.
 
 To make it pick it up:
 
-* Update the https://github.com/acdh-oeaw/corpus-search/blob/main/Dockerfile#L5 (the `CORPLIST` env var)
-* Make sure https://github.com/acdh-oeaw/corpus-search/actions/workflows/starter.yaml is being run.
+* Update the <https://github.com/acdh-oeaw/corpus-search/blob/main/Dockerfile#L5> (the `CORPLIST` env var)
+* Make sure <https://github.com/acdh-oeaw/corpus-search/actions/workflows/starter.yaml> is being run.
   If not (e.g. because no changes to the `CORPLIST` env var were made), then run it manually.
 * Redeploy the [noske-fcs/corpus-search-prod](https://rancher.acdh-dev.oeaw.ac.at/dashboard/c/c-m-6hwgqq2g/explorer/apps.deployment/noske-fcs/corpus-search-prod#pods)
   workflow (unfortunatelly when it's done automatically from the Github Workflow, the new image is not pulled).

@@ -20,13 +20,6 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 ### By hand
 
 * Clone this repo and go into directory with this file
-* Install Python dependencies
-
-  ```bash
-  python3 -m venv env
-  source env/bin/activate
-  pip3 install -U -r requirements.txt
-  ```
 
 * Create the config file from a template:
 
@@ -44,13 +37,13 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 * Run with
 
   ```bash
-  python3 create_verticals.py
+  uv run create_verticals.py
   ```
 
   * To see all command-line options run
 
     ```bash
-    python3 create_verticals.py --help
+    uv run create_verticals.py --help
     ```
 
 * Then run

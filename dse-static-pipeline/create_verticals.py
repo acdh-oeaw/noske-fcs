@@ -88,9 +88,7 @@ def process_tei(
     tree = ET.fromstring(tei_content.encode("utf-8"))
     nsmap = {"tei": "http://www.tei-c.org/ns/1.0"}
 
-    vertical.write(
-        f'<chapter ID="{corpora["id"]}" LandingPageURI="{html_url} LanguageCode="{lang}" DocTitle="{title}>\n'
-    )
+    vertical.write(f'<chapter uri="{html_url}" title="{title}" lang="{lang}">\n')
 
     last_p = None
     text = ""
@@ -109,7 +107,7 @@ def process_tei(
         text += part + " "
 
     t3 = perf_counter()
-    suffix = f"\t{html_url}"
+    suffix = ""
     processed = run_udp(text.strip(), corpora["lang"], cfg["udppipe"], suffix)
     t4 = perf_counter()
     processed = processed.replace("<s>\n</s>\n", "").replace("<p>\n</p>\n", "")
@@ -244,13 +242,17 @@ def main():
         teis = get_tei_locations(val["oai"])
         path_config = os.path.join(cfg["outputDir"], key)
         path_vertical = f"{path_config}.vrt"
+        try:
+            default_lang = val["default_lang"]
+        except KeyError:
+            default_lang = "deu"
         corpora = {
             "id": key,
             "title": val["title"],
             "tei": teis,
             "xpath": val["fulltext_xpath"],
             "landingPage": val["landingpage"],
-            "lang": val["default_lang"],
+            "lang": default_lang,
             "pid": val["pid"],
             "vertical": path_vertical,
         }

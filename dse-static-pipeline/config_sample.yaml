@@ -41,7 +41,6 @@ corporaConfig: |
   ATTRIBUTE word
   ATTRIBUTE lemma
   ATTRIBUTE pos
-  ATTRIBUTE landingPageURI
   ATTRIBUTE lc {
     DYNAMIC    utf8lowercase
     DYNLIB     internal
@@ -82,8 +81,9 @@ corporaConfig: |
     ATTRIBUTE LandingPageURI
   }
   STRUCTURE chapter {
-    ATTRIBUTE ID
-    ATTRIBUTE LandingPageURI
+    ATTRIBUTE uri
+    ATTRIBUTE title
+    ATTRIBUTE lang
   }
   STRUCTURE p
   STRUCTURE s

@@ -39,7 +39,8 @@ The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acd
 ## TL;DR
 
 ```shell
-uv run dse-static-pipeline/create_verticals.py -c=dse-static-pipeline/config.yaml -e=dse-static
+cd dse-static-pipeline
+uv run create_verticals.py config.yaml -e=dse-static
 ```
 
 ## Links

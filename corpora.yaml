@@ -246,7 +246,7 @@ jad:
     en: The project explores the medieval reception and interpretation of the Roman conquest of Jerusalem in 70 AD, examining its presence in chronicles, anti-Jewish treatises, sermon collections, and biblical commentaries.
   landingPageURI: https://hdl.handle.net/21.11115/0000-0017-DC59-C
   languages:
-  - deu
+  - lat
   paragraph: p
   pid: https://hdl.handle.net/21.11115/0000-0017-DC59-C
   session: chapter
@@ -254,6 +254,21 @@ jad:
   title:
     de: Mittelalterliche Rezeption der römischen Eroberung Jerusalems
     en: Medieval Reception of the Roman Conquest of Jerusalem
+  turn: p
+  utterance: s
+hit:
+  description:
+    en: The project aims to challenge the current understanding of the cultural history of historiography in the Carolingian and post-Carolingian world (9th–12th centuries) through an innovative and precisely focussed investigation of two major centres of historical writing during this period, Salzburg and Freising.
+  landingPageURI: https://hdl.handle.net/21.11115/0000-001F-FDA7-6
+  languages:
+  - deu
+  paragraph: p
+  pid: https://hdl.handle.net/21.11115/0000-001F-FDA7-6
+  session: chapter
+  text: chapter
+  title:
+    de: Geschichten im Wandel
+    en: Histories in Transition
   turn: p
   utterance: s
 legalkraus:

@@ -11,7 +11,7 @@ It uses github actions to run a following workflow:
   build the `corpora-resources` section of the
   [mquery-sru's config file](https://github.com/czcorpus/mquery-sru/blob/main/config-reference.md)
   upon its container startup.
-* Build the docker image and push it to the docker hub.
+* Build the docker image and push it to the docker hub. 
 
 The deployment is available under [https://fcs.acdh.oeaw.ac.at/](https://fcs.acdh.oeaw.ac.at/) e.g.
 

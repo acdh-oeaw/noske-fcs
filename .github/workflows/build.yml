@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v6
     - name: clone and config mquery-sru
       run: |
-        git clone https://github.com/czcorpus/mquery-sru.git
+        git clone --branch v0.4.0 https://github.com/czcorpus/mquery-sru.git
         cp config.json mquery-sru/conf-docker.json
         cp confgen.py corpora.yaml mquery-sru/
         # quick and dirty fixes for the SRU/61 diagnostic

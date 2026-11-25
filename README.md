@@ -4,7 +4,7 @@ This repository provides a deployment of the [mquery-sru](https://github.com/czc
 
 It uses github actions to run a following workflow:
 
-* Clone the [mquery-sru](https://github.com/czcorpus/mquery-sru) repo.
+* Clone the [mquery-sru v0.4.0 release](https://github.com/czcorpus/mquery-sru/releases/tag/v0.4.0).
 * Adjust its Dockerfile so it includes corpora from existing docker images defined in the `preDockerfile`
   and copies data from them according to the `postDockerfile`.
 * Include into the build config the `confgen.py` script and the `corpora.yml` file which are used to dynamically

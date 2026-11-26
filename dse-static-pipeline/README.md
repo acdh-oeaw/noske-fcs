@@ -12,7 +12,7 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 ### As a github action
 
 * Go to <https://github.com/acdh-oeaw/noske-fcs/actions/workflows/dse-static.yml> and run the workflow.
-  It will read the data from the existing `acdhch/noske-fcs-dse-static` image, run the `create_verticals.py`, `compile_corp.sh` and `build_image.sh` and push the resulting image to the registry.
+  It will read the data from the existing `ghcr.io/acdh-oeaw/noske-fcs-dse-static` image, run the `create_verticals.py`, `compile_corp.sh` and `build_image.sh` and push the resulting image to GHCR.
 * Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora
   (you can find them in the `data/*.yml` files), commit and push.
 * Run the [build action](https://github.com/acdh-oeaw/noske-fcs/actions/workflows/build.yml) or make a new release.
@@ -46,12 +46,12 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
     uv run create_verticals.py --help
     ```
 
-* Then run
+* Authenticate with GHCR using an account with permission to push the package, then run
 
   ```bash
   ./compile_corp.sh
   ./build_image.sh
-  docker push acdhch/noske-fcs-dse-static
+  docker push ghcr.io/acdh-oeaw/noske-fcs-dse-static:latest
   ```
 
 * Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora

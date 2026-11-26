@@ -6,7 +6,7 @@
 if [ ! -d data ] ; then
     mkdir data
 fi
-docker pull ghcr.io/csae8092/noske-fcs-dse-static:latest
-cid=$(docker create ghcr.io/csae8092/noske-fcs-dse-static:latest /bin/true)
+docker pull ghcr.io/acdh-oeaw/noske-fcs-dse-static:latest
+cid=$(docker create ghcr.io/acdh-oeaw/noske-fcs-dse-static:latest /bin/true)
 docker cp "$cid":/var/lib/manatee/registry/. data/
 docker rm "$cid" > /dev/null

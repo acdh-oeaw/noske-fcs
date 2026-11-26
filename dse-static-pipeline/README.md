@@ -13,6 +13,11 @@ tokenizes and enriches them with lemma and part of speach and generates (No)Sket
 
 * Go to <https://github.com/acdh-oeaw/noske-fcs/actions/workflows/dse-static.yml> and run the workflow.
   It will read the data from the existing `ghcr.io/acdh-oeaw/noske-fcs-dse-static` image, run the `create_verticals.py`, `compile_corp.sh` and `build_image.sh` and push the resulting image to GHCR.
+  The workflow's `GITHUB_TOKEN` has `packages: write`, but the existing package must also grant
+  `acdh-oeaw/noske-fcs` write access. A package administrator can open the package's **Package settings**,
+  add the repository under **Manage Actions access**, and select the **Write** role.
+  See [GitHub's package access instructions](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
+  Then rerun the workflow.
 * Update the [corpora.yaml](https://github.com/acdh-oeaw/noske-fcs/blob/main/corpora.yaml) with the data of the generated corpora
   (you can find them in the `data/*.yml` files), commit and push.
 * Run the [build action](https://github.com/acdh-oeaw/noske-fcs/actions/workflows/build.yml) or make a new release.
